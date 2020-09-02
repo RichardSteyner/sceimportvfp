@@ -1,0 +1,244 @@
+<apex:page Controller="SCEImportToolController" tabStyle="SCE_Everbridge__tab" standardStylesheets="true"> 
+    <style>
+        .button {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        text-align: center !important;
+        vertical-align: middle !important;
+        border: 1px solid #dddbda !important;
+        transition: border .15s linear !important;
+        background:none !important;
+        background-color: #0070d2 !important;
+        padding-top: 6px !important;
+        padding-bottom: 6px !important;
+        border-color: #0070d2 !important;
+        color: #fff !important;
+        }
+        #text{position: relative;margin:auto;width: 200px}
+        .windows8 {position: relative;width: 76px;height:76px;margin:auto;padding-top:15px;display:none;}
+        .windows8 .wBall {position: absolute;width: 72px;height: 72px;opacity: 0;transform: rotate(225deg);-o-transform: rotate(225deg);-ms-transform: rotate(225deg);-webkit-transform: rotate(225deg);-moz-transform: rotate(225deg);animation: orbit 3.3225s infinite;-o-animation: orbit 3.3225s infinite;-ms-animation: orbit 3.3225s infinite;-webkit-animation: orbit 3.3225s infinite;-moz-animation: orbit 3.3225s infinite;}
+        .windows8 .wBall .wInnerBall{position: absolute;width: 9px;height: 9px;background: rgb(150,144,168);left:0px;top:0px;border-radius: 9px;}
+        .windows8 #wBall_1 {animation-delay: 0.726s;-o-animation-delay: 0.726s;-ms-animation-delay: 0.726s;-webkit-animation-delay: 0.726s;-moz-animation-delay: 0.726s;}
+        .windows8 #wBall_2 {animation-delay: 0.143s;-o-animation-delay: 0.143s;-ms-animation-delay: 0.143s;-webkit-animation-delay: 0.143s;-moz-animation-delay: 0.143s;}
+        .windows8 #wBall_3 {animation-delay: 0.2865s;-o-animation-delay: 0.2865s;-ms-animation-delay: 0.2865s;-webkit-animation-delay: 0.2865s;-moz-animation-delay: 0.2865s;}
+        .windows8 #wBall_4 {animation-delay: 0.4295s;-o-animation-delay: 0.4295s;-ms-animation-delay: 0.4295s;-webkit-animation-delay: 0.4295s;-moz-animation-delay: 0.4295s;}
+        .windows8 #wBall_5 {animation-delay: 0.583s;-o-animation-delay: 0.583s;-ms-animation-delay: 0.583s;-webkit-animation-delay: 0.583s;-moz-animation-delay: 0.583s;}
+        @keyframes orbit {0% {opacity: 1;z-index:99;transform: rotate(180deg);animation-timing-function: ease-out;}7% {opacity: 1;transform: rotate(300deg);animation-timing-function: linear;origin:0%;}30% {opacity: 1;transform:rotate(410deg);animation-timing-function: ease-in-out;origin:7%;}39% {opacity: 1;transform: rotate(645deg);animation-timing-function: linear;origin:30%;}70% {opacity: 1;transform: rotate(770deg);animation-timing-function: ease-out;origin:39%;}75% {opacity: 1;transform: rotate(900deg);animation-timing-function: ease-out;origin:70%;}76% {opacity: 0;transform:rotate(900deg);}100% {opacity: 0;transform: rotate(900deg);}}
+        @-o-keyframes orbit {0% {opacity: 1;z-index:99;-o-transform: rotate(180deg);-o-animation-timing-function: ease-out;}7% {opacity: 1;-o-transform: rotate(300deg);-o-animation-timing-function: linear;-o-origin:0%;}30% {opacity: 1;-o-transform: rotate(410deg);-o-animation-timing-function: ease-in-out;-o-origin:7%;}39% {opacity: 1;-o-transform: rotate(645deg);-o-animation-timing-function: linear;-o-origin:30%;}70% {opacity: 1;-o-transform: rotate(770deg);-o-animation-timing-function: ease-out;-o-origin:39%;}75% {opacity: 1;-o-transform: rotate(900deg);-o-animation-timing-function: ease-out;-o-origin:70%;}76% {opacity: 0;-o-transform:rotate(900deg);}100% {opacity: 0;-o-transform: rotate(900deg);}}
+        @-ms-keyframes orbit {0% {opacity: 1;z-index:99;-ms-transform: rotate(180deg);-ms-animation-timing-function: ease-out;}7% {opacity: 1;-ms-transform: rotate(300deg);-ms-animation-timing-function: linear;-ms-origin:0%;}30% {opacity: 1;-ms-transform:rotate(410deg);-ms-animation-timing-function: ease-in-out;-ms-origin:7%;}39% {opacity: 1;-ms-transform: rotate(645deg);-ms-animation-timing-function: linear;-ms-origin:30%;}70% {opacity: 1;-ms-transform: rotate(770deg);-ms-animation-timing-function: ease-out;-ms-origin:39%;}75% {opacity: 1;-ms-transform: rotate(900deg);-ms-animation-timing-function: ease-out;-ms-origin:70%;}76% {opacity: 0;-ms-transform:rotate(900deg);}100% {opacity: 0;-ms-transform: rotate(900deg);}}
+        @-webkit-keyframes orbit {0% {opacity: 1;z-index:99;-webkit-transform: rotate(180deg);-webkit-animation-timing-function: ease-out;}7% {opacity: 1;-webkit-transform: rotate(300deg);-webkit-animation-timing-function: linear;-webkit-origin:0%;}30% {opacity: 1;-webkit-transform:rotate(410deg);-webkit-animation-timing-function: ease-in-out;-webkit-origin:7%;}39% {opacity: 1;-webkit-transform: rotate(645deg);-webkit-animation-timing-function: linear;-webkit-origin:30%;}70% {opacity: 1;-webkit-transform: rotate(770deg);-webkit-animation-timing-function: ease-out;-webkit-origin:39%;}75% {opacity: 1;-webkit-transform: rotate(900deg);-webkit-animation-timing-function: ease-out;-webkit-origin:70%;}76% {opacity: 0;-webkit-transform:rotate(900deg);}100% {opacity: 0;-webkit-transform: rotate(900deg);}}
+        @-moz-keyframes orbit {0% {opacity: 1;z-index:99;-moz-transform: rotate(180deg);-moz-animation-timing-function: ease-out;}7% {opacity: 1;-moz-transform: rotate(300deg);-moz-animation-timing-function: linear;-moz-origin:0%;}30% {opacity: 1;-moz-transform:rotate(410deg);-moz-animation-timing-function: ease-in-out;-moz-origin:7%;}39% {opacity: 1;-moz-transform: rotate(645deg);-moz-animation-timing-function: linear;-moz-origin:30%;}70% {opacity: 1;-moz-transform: rotate(770deg);-moz-animation-timing-function: ease-out;-moz-origin:39%;}75% {opacity: 1;-moz-transform: rotate(900deg);-moz-animation-timing-function: ease-out;-moz-origin:70%;}76% {opacity: 0;-moz-transform:rotate(900deg);}100% {opacity: 0;-moz-transform: rotate(900deg);}}
+    
+        /** LOADING **/
+            /* Absolute Center Spinner */
+            .loading {
+            position: fixed;
+            z-index: 999;
+            height: 2em;
+            width: 2em;
+            overflow: show;
+            margin: auto;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            }
+            
+            /* Transparent Overlay */
+            .loading:before {
+            content: '';
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.3);
+            }
+            
+            /* :not(:required) hides these rules from IE9 and below */
+            .loading:not(:required) {
+            /* hide "loading..." text */
+            font: 0/0 a;
+            color: transparent;
+            text-shadow: none;
+            background-color: transparent;
+            border: 0;
+            }
+            
+            .loading:not(:required):after {
+            content: '';
+            display: block;
+            font-size: 10px;
+            width: 1em;
+            height: 1em;
+            margin-top: -0.5em;
+            -webkit-animation: spinner 1500ms infinite linear;
+            -moz-animation: spinner 1500ms infinite linear;
+            -ms-animation: spinner 1500ms infinite linear;
+            -o-animation: spinner 1500ms infinite linear;
+            animation: spinner 1500ms infinite linear;
+            border-radius: 0.5em;
+            -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+            box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+            }
+            
+            /* Animation */
+            
+            @-webkit-keyframes spinner {
+            0% {
+            -webkit-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+            }
+            100% {
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+            }
+            }
+            @-moz-keyframes spinner {
+            0% {
+            -webkit-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+            }
+            100% {
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+            }
+            }
+            @-o-keyframes spinner {
+            0% {
+            -webkit-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+            }
+            100% {
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+            }
+            }
+            @keyframes spinner {
+            0% {
+            -webkit-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+            }
+            100% {
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+            }
+            }
+            /** END LOADING **/
+        
+        	.alert-danger{color: #721c24;background-color: #f8d7da;border-color: #f5c6cb;}
+        	.alert-success{color: #155724;background-color: #d4edda;border-color: #c3e6cb;}
+        	.alert{margin-left: 20px;margin-right: 20px;position: relative;padding: .75rem 1.25rem;margin-bottom: 1rem;border: 1px solid transparent;border-radius: .25rem;}
+    </style>
+    <apex:sectionHeader title="Southern California Edinson Circuit Relationships and Everbridge Tool" />   
+    <table cellspacing="0" cellpadding="0" width="100%">
+        <tr>
+        	<td colspan="2">
+                <apex:outputPanel id="messagePanel">
+                    <div class="alert alert-danger" role="alert" style="{!IF(OR(batchStatus == 'Aborted',batchStatus == 'Extension Fail'),'','display:none;')}">
+                        <apex:outputText value="{!BatchStatusNew}" escape="false"/>                        
+                    </div>
+                    <div class="alert alert-success" role="alert" style="{!IF(batchStatus == 'Completed','','display:none;')}">
+                        {!BatchStatusNew}
+                    </div>
+                </apex:outputPanel>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:50%;">
+                <div style="margin-left:20px;margin-bottom:10px;">
+                    <span style="font-weight:bold;">Instructions</span><br/>
+                    Step 1: Create Import File <br/>
+                    <div style="padding-left:40px;">
+                        1.	Locate File: C:\Users\davism2\Desktop\LPA PSPS\05132019_HFA<br/>
+                        2.	Open this file <br/>
+                        3.	Unzip files and place in directory <br/>
+                        4.	Copy the directory using windows program <br/>
+                        5.	Enter date of files <br/>
+                        6.	click the capture data button <br/>
+                        7.	click the produce report button <br/>
+                        8.	finish creating <br/>
+                    </div>
+                    <br/>
+                    Step 2: Save file on local machine. <br/>
+                    <div style="padding-left:40px;">
+                        *The file must be a CSV file with encoding on UTF-8 without BOM file format with the following headers, in this exact order: <br/>
+                        *Do not use the following characters in your data:  Comma (,), dot (.)<br/>
+                        <apex:image value="{!'/servlet/servlet.FileDownload?file=' + doc.Id}" width="100%"/>
+                        <p>Click <a target="_blank" href="{!'/servlet/servlet.FileDownload?file=' + Template.Id}">here</a> for sample file</p>
+                        <p>Click <a target="_blank" href="{!$Resource.SCE_error_procedure}">here</a> for changing your file type to a CSV with encoding on UTF-8 without BOM</p>
+                    </div>
+                    <br/>
+                    Step 3: Click Delete Data button <br/>
+                    <div style="padding-left:40px;">
+                        *Note this will delete all Circuits and Circuit relationships in Salesforce. Which will delete all groups in Everbridge. Emergency communications will be down until you import new file. <br/> 
+                    </div>
+                    <br/>
+                    Step 4: Load saved file with Browse Feature to import new data <br/>
+                    <br/>
+                    Step 5: Wait for importing tool to be complete.  <br/>
+                    <div style="padding-left:40px;">
+                        *Do not close browser while importing tool is working
+                    </div>
+                </div>
+            </td>
+            <td style="width:50%;">
+                <table cellspacing="0" cellpadding="0" width="100%">
+                    <tr>
+                        <td style="padding-top:40px;padding-bottom:40px;">
+                            <apex:form >
+                                <center>
+                                    <apex:commandButton action="{!DeleteRecords}" styleClass="button" value="Delete Data" id="DeleteRecords" disabled="{!IF(pollerBool==true,'true','')}" />
+                                </center>
+                            </apex:form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top:40px;padding-bottom:40px;">
+                            <apex:form >
+                                <center>
+                                    Browse: <apex:inputFile value="{!contentFile1}" filename="{!nameFile}" style="padding-right: 50px;" accept="text/csv" contentType="text/csv" />
+                                    <apex:commandButton action="{!ReadFile}" value="Upload File" styleClass="button" id="ProcessFile" disabled="{!IF(pollerBool==true,'true','')}" />
+                                </center>
+                            </apex:form>
+                            <apex:form >
+                                <apex:outputPanel rendered="{!batchStatusBool}" id="pg">
+                                    <apex:actionStatus id="act" startText="" />
+                                    <apex:actionPoller interval="15" action="{!checkBatchStatus}" enabled="{!pollerBool}" reRender="pg,ProcessFile,wBallLoading,messagePanel, DeleteRecords" status="act"/>
+                                    <apex:outputPanel id="wBallLoading">
+                                        <div id="contentLoading" class="loading" style="display:{!If(pollerBool==true,'block','none')}"></div>
+                                    </apex:outputPanel>
+                                </apex:outputPanel>
+                            </apex:form>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</apex:page>

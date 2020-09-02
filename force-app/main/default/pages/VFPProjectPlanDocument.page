@@ -1,0 +1,1348 @@
+<apex:page Controller="ProjectPlanDocument" sidebar="false" showHeader="false" standardStylesheets="false" contentType="application/msWord#{!Project.name}-ProjectPlan.doc" cache="true">
+    <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns:m="http://schemas.microsoft.com/office/2004/12/omml" xmlns='http://www.w3.org/TR/REC-html40'>
+        <head>
+            <title>Project Charter and Plan</title>
+            <apex:outputText value="{!PrintView}" escape="false"/>
+            <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />            
+            <style>
+                p.MsoNormal, li.MsoNormal, div.MsoNormal{
+                    mso-style-unhide:no;
+                    mso-style-qformat:yes;
+                    mso-style-parent:"";
+                    margin-top:0in;
+                    margin-right:0in;
+                    margin-bottom:8.0pt;
+                    margin-left:0in;
+                    line-height:107%;
+                    mso-pagination:widow-orphan;
+                    font-size:11.0pt;
+                    font-family:"Times New Roman",sans-serif;
+                    mso-ascii-font-family:Calibri;
+                    mso-ascii-theme-font:minor-latin;
+                    mso-fareast-font-family:Calibri;
+                    mso-fareast-theme-font:minor-latin;
+                    mso-hansi-font-family:Calibri;
+                    mso-hansi-theme-font:minor-latin;
+                    mso-bidi-font-family:"Times New Roman";
+                    mso-bidi-theme-font:minor-bidi;
+                    mso-ansi-language:EN-US;
+                    mso-fareast-language:EN-US;
+                     
+                }
+                p.MsoHeader, li.MsoHeader, div.MsoHeader{
+                    mso-style-priority:99;
+                    mso-style-link:"Encabezado Car";
+                    margin:0in;
+                    margin-bottom:.0001pt;
+                    mso-pagination:widow-orphan;
+                    tab-stops:center 212.6pt right 425.2pt;
+                    font-size:11.0pt;
+                    font-family:"Times New Roman",sans-serif;
+                    mso-ascii-font-family:Calibri;
+                    mso-ascii-theme-font:minor-latin;
+                    mso-fareast-font-family:Calibri;
+                    mso-fareast-theme-font:minor-latin;
+                    mso-hansi-font-family:Calibri;
+                    mso-hansi-theme-font:minor-latin;
+                    mso-bidi-font-family:"Times New Roman";
+                    mso-bidi-theme-font:minor-bidi;
+                    mso-ansi-language:EN-US;
+                    mso-fareast-language:EN-US;}
+                p.MsoFooter, li.MsoFooter, div.MsoFooter{
+                    mso-style-priority:99;
+                    mso-style-link:"Pie de página Car";
+                    margin:0in;
+                    margin-bottom:.0001pt;
+                    mso-pagination:widow-orphan;
+                    tab-stops:center 212.6pt right 425.2pt;
+                    font-size:11.0pt;
+                    font-family:"Times New Roman",sans-serif;
+                    mso-ascii-font-family:Calibri;
+                    mso-ascii-theme-font:minor-latin;
+                    mso-fareast-font-family:Calibri;
+                    mso-fareast-theme-font:minor-latin;
+                    mso-hansi-font-family:Calibri;
+                    mso-hansi-theme-font:minor-latin;
+                    mso-bidi-font-family:"Times New Roman";
+                    mso-bidi-theme-font:minor-bidi;
+                    mso-ansi-language:EN-US;
+                    mso-fareast-language:EN-US;
+                }
+                p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph{
+                    mso-style-priority:34;
+                    mso-style-unhide:no;
+                    mso-style-qformat:yes;
+                    margin-top:0in;
+                    margin-right:0in;
+                    margin-bottom:8.0pt;
+                    margin-left:0in;
+                    mso-add-space:auto;
+                    line-height:107%;
+                    mso-pagination:widow-orphan;
+                    font-size:11.0pt;
+                    font-family:"Times New Roman",sans-serif;
+                    mso-ascii-font-family:Calibri;
+                    mso-ascii-theme-font:minor-latin;
+                    mso-fareast-font-family:Calibri;
+                    mso-fareast-theme-font:minor-latin;
+                    mso-hansi-font-family:Calibri;
+                    mso-hansi-theme-font:minor-latin;
+                    mso-bidi-font-family:"Times New Roman";
+                    mso-bidi-theme-font:minor-bidi;
+                    mso-ansi-language:EN-US;
+                    mso-fareast-language:EN-US;
+                }
+                p.MsoNormal, li.MsoNormal, div.MsoNormal{
+                    mso-style-unhide:no;
+                    mso-style-qformat:yes;
+                    mso-style-parent:"";
+                    margin-top:0in;
+                    margin-right:0in;
+                    margin-bottom:8.0pt;
+                    margin-left:0in;
+                    line-height:107%;
+                    mso-pagination:widow-orphan;
+                    font-size:11.0pt;
+                    font-family:"Times New Roman",sans-serif;
+                    mso-ascii-font-family:Calibri;
+                    mso-ascii-theme-font:minor-latin;
+                    mso-fareast-font-family:Calibri;
+                    mso-fareast-theme-font:minor-latin;
+                    mso-hansi-font-family:Calibri;
+                    mso-hansi-theme-font:minor-latin;
+                    mso-bidi-font-family:"Times New Roman";
+                    mso-bidi-theme-font:minor-bidi;
+                    mso-ansi-language:EN-US;
+                    mso-fareast-language:EN-US;
+                }
+                p.MsoHeader, li.MsoHeader, div.MsoHeader{
+                    mso-style-priority:99;
+                    mso-style-link:"Encabezado Car";
+                    margin:0in;
+                    margin-bottom:.0001pt;
+                    mso-pagination:widow-orphan;
+                    tab-stops:center 212.6pt right 425.2pt;
+                    font-size:11.0pt;
+                    font-family:"Calibri",sans-serif;
+                    mso-ascii-font-family:Calibri;
+                    mso-ascii-theme-font:minor-latin;
+                    mso-fareast-font-family:Calibri;
+                    mso-fareast-theme-font:minor-latin;
+                    mso-hansi-font-family:Calibri;
+                    mso-hansi-theme-font:minor-latin;
+                    mso-bidi-font-family:"Times New Roman";
+                    mso-bidi-theme-font:minor-bidi;
+                    mso-ansi-language:EN-US;
+                    mso-fareast-language:EN-US;
+                }
+                p.MsoFooter, li.MsoFooter, div.MsoFooter{
+                    mso-style-priority:99;
+                    mso-style-link:"Pie de página Car";
+                    margin:0in;
+                    margin-bottom:.0001pt;
+                    mso-pagination:widow-orphan;
+                    tab-stops:center 212.6pt right 425.2pt;
+                    font-size:11.0pt;
+                    font-family:"Times New Roman",sans-serif;
+                    mso-ascii-font-family:Calibri;
+                    mso-ascii-theme-font:minor-latin;
+                    mso-fareast-font-family:Calibri;
+                    mso-fareast-theme-font:minor-latin;
+                    mso-hansi-font-family:Calibri;
+                    mso-hansi-theme-font:minor-latin;
+                    mso-bidi-font-family:"Times New Roman";
+                    mso-bidi-theme-font:minor-bidi;
+                    mso-ansi-language:EN-US;
+                    mso-fareast-language:EN-US;
+                }
+                p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph{
+                    mso-style-priority:34;
+                    mso-style-unhide:no;
+                    mso-style-qformat:yes;
+                    margin-top:0in;
+                    margin-right:0in;
+                    margin-bottom:8.0pt;
+                    margin-left:0in;
+                    mso-add-space:auto;
+                    line-height:107%;
+                    mso-pagination:widow-orphan;
+                    font-size:11.0pt;
+                    font-family:"Times New Roman",sans-serif;
+                    mso-ascii-font-family:Calibri;
+                    mso-ascii-theme-font:minor-latin;
+                    mso-fareast-font-family:Calibri;
+                    mso-fareast-theme-font:minor-latin;
+                    mso-hansi-font-family:Calibri;
+                    mso-hansi-theme-font:minor-latin;
+                    mso-bidi-font-family:"Times New Roman";
+                    mso-bidi-theme-font:minor-bidi;
+                    mso-ansi-language:EN-US;
+                    mso-fareast-language:EN-US;}
+                p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst{
+                    mso-style-priority:34;
+                    mso-style-unhide:no;
+                    mso-style-qformat:yes;
+                    mso-style-type:export-only;
+                    margin-top:0in;
+                    margin-right:0in;
+                    margin-bottom:0in;
+                    margin-left:0in;
+                    margin-bottom:.0001pt;
+                    mso-add-space:auto;
+                    line-height:107%;
+                    mso-pagination:widow-orphan;
+                    font-size:11.0pt;
+                    font-family:"Times New Roman",sans-serif;
+                    mso-ascii-font-family:Calibri;
+                    mso-ascii-theme-font:minor-latin;
+                    mso-fareast-font-family:Calibri;
+                    mso-fareast-theme-font:minor-latin;
+                    mso-hansi-font-family:Calibri;
+                    mso-hansi-theme-font:minor-latin;
+                    mso-bidi-font-family:"Times New Roman";
+                    mso-bidi-theme-font:minor-bidi;
+                    mso-ansi-language:EN-US;
+                    mso-fareast-language:EN-US;
+                }
+                p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle{
+                    mso-style-priority:34;
+                    mso-style-unhide:no;
+                    mso-style-qformat:yes;
+                    mso-style-type:export-only;
+                    margin-top:0in;
+                    margin-right:0in;
+                    margin-bottom:0in;
+                    margin-left:0in;
+                    margin-bottom:.0001pt;
+                    mso-add-space:auto;
+                    line-height:107%;
+                    mso-pagination:widow-orphan;
+                    font-size:11.0pt;
+                    font-family:"Times New Roman",sans-serif;
+                    mso-ascii-font-family:Calibri;
+                    mso-ascii-theme-font:minor-latin;
+                    mso-fareast-font-family:Calibri;
+                    mso-fareast-theme-font:minor-latin;
+                    mso-hansi-font-family:Calibri;
+                    mso-hansi-theme-font:minor-latin;
+                    mso-bidi-font-family:"Times New Roman";
+                    mso-bidi-theme-font:minor-bidi;
+                    mso-ansi-language:EN-US;
+                    mso-fareast-language:EN-US;}
+                p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast{
+                    mso-style-priority:34;
+                    mso-style-unhide:no;
+                    mso-style-qformat:yes;
+                    mso-style-type:export-only;
+                    margin-top:0in;
+                    margin-right:0in;
+                    margin-bottom:8.0pt;
+                    margin-left:0in;
+                    mso-add-space:auto;
+                    line-height:107%;
+                    mso-pagination:widow-orphan;
+                    font-size:11.0pt;
+                    font-family:"Times New Roman",sans-serif;
+                    mso-ascii-font-family:Calibri;
+                    mso-ascii-theme-font:minor-latin;
+                    mso-fareast-font-family:Calibri;
+                    mso-fareast-theme-font:minor-latin;
+                    mso-hansi-font-family:Calibri;
+                    mso-hansi-theme-font:minor-latin;
+                    mso-bidi-font-family:"Times New Roman";
+                    mso-bidi-theme-font:minor-bidi;
+                    mso-ansi-language:EN-US;
+                    mso-fareast-language:EN-US;
+                }
+                span.EncabezadoCar{
+                    mso-style-name:"Encabezado Car";
+                    mso-style-priority:99;
+                    mso-style-unhide:no;
+                    mso-style-locked:yes;
+                    mso-style-link:Encabezado;}
+                span.PiedepginaCar{
+                    mso-style-name:"Pie de página Car";
+                    mso-style-priority:99;
+                    mso-style-unhide:no;
+                    mso-style-locked:yes;
+                    mso-style-link:"Pie de página";}
+                span.SpellE{
+                    mso-style-name:"";
+                    mso-spl-e:yes;
+                }
+                span.GramE{
+                    mso-style-name:"";
+                    mso-gram-e:yes;
+                    
+                }
+                .MsoChpDefault{
+                    mso-style-type:export-only;
+                    mso-default-props:yes;
+                    mso-ascii-font-family:Calibri;
+                    mso-ascii-theme-font:minor-latin;
+                    mso-fareast-font-family:Calibri;
+                    mso-fareast-theme-font:minor-latin;
+                    mso-hansi-font-family:Calibri;
+                    mso-hansi-theme-font:minor-latin;
+                    mso-bidi-font-family:"Times New Roman";
+                    mso-bidi-theme-font:minor-bidi;
+                    mso-fareast-language:EN-US;
+                }
+                .MsoPapDefault{
+                    mso-style-type:export-only;
+                    margin-bottom:8.0pt;
+                    line-height:107%;
+                    
+                }
+                span.GramE{
+                    mso-style-name:"";
+                    mso-gram-e:yes;
+                    
+                }
+                @page{
+                }
+                @page WordSection1{
+                    size:21cm 29.7cm; 
+                    margin:1.0in 1.0in 1.0in 1.0in;
+                    mso-header-margin:35.3pt;
+                    mso-header:h1;
+                    mso-footer:f1; 
+                    mso-footer-margin:35.3pt;
+                    mso-paper-source:0;
+                }
+                div.WordSection1{
+                    page:WordSection1;
+                }
+                ol{
+                    margin-bottom:0in;
+                }
+                ul{
+                    margin-bottom:0in;
+                }
+                span.GramE span{
+                    font-family:"Times New Roman",serif !important;
+                    font-size:12.0pt !important;
+                }
+                tr{ 
+                    page-break-inside:avoid !important; 
+
+                }
+                td{ 
+                    page-break-inside:avoid !important; 
+
+                }
+        </style>
+        </head>
+        <body style='tab-interval:35.3pt'>
+            <div class="WordSection1">
+                <p class="MsoNormal" align="center" style='text-align:center;page-break-after:avoid;'>
+                    <b style='mso-bidi-font-weight:normal'>
+                        <span lang="EN-US" style='font-size:12.0pt;color:blue;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                            PROJECT CHARTER &amp; PLAN
+                        </span>
+                    </b>
+                </p>
+                <p class="MsoListParagraph" style="page-break-after:avoid;">
+                    <span lang="EN-US" style='font-size:15.0pt;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                        {!Project.Name}
+                    </span>
+                    <br/>
+                    <span style='font-size:10.5pt;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                        <apex:outputText value="{0,date,MMMM dd, yyyy}">
+                            <apex:param value="{!Project.Lastmodifieddate}" />
+                        </apex:outputText>
+                    </span>
+                    <br/>
+                    <span lang="EN-US" style='font-size:10.5pt;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                        {!Project.Owner.Name}, Project Manger
+                    </span>
+                </p>
+                <br/>
+                <p class="MsoListParagraph" style="page-break-after:avoid;">
+                    <b style='mso-bidi-font-weight:normal'>
+                        <i style='mso-bidi-font-style:normal'>
+                            <span lang="EN-US" style='font-size:18.0pt;color:blue;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                                1. Project Summary
+                            </span>
+                        </i>
+                    </b>
+                </p>
+                <p class="MsoNormal" style="page-break-after:avoid;">
+                    <span class="GramE">
+                        <span lang="EN-US" style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                            {!Project.primary_project_summary__c}
+                        </span>
+                    </span>
+                    <span lang="EN-US" style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                    </span>
+                </p>
+                <p class="MsoNormal" style="page-break-after:avoid;">
+                    <span class="GramE">
+                        <span lang="EN-US" style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                            {!Project.project_summary__c}
+                        </span>
+                    </span>
+                    <span lang="EN-US" style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                    </span>
+                </p>
+                <p class="MsoListParagraph" style="page-break-after:avoid;">
+                    <b style='mso-bidi-font-weight:normal'>
+                        <i style='mso-bidi-font-style:normal'>
+                            <span lang="EN-US" style='font-size:18.0pt;color:blue;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                                2. Executive Summary
+                            </span>
+                        </i>
+                    </b>
+                </p>
+                <p class="MsoNormal" style="page-break-after:avoid;">
+                    <span class="GramE">
+                        <span lang="EN-US" style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                            <apex:outputText value="{!Project.Executive_Summary__c}" escape="false"/>
+                            
+                        </span>
+                    </span>
+                    <span lang="EN-US" style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                    </span>
+                </p>
+                <p class="MsoListParagraph" style="page-break-after:avoid;">
+                    <b style='mso-bidi-font-weight:normal'>
+                        <i style='mso-bidi-font-style:normal'>
+                            <span lang="EN-US" style='font-size:18.0pt;color:blue;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                                3. Situation: Project Background and Project Rationale
+                            </span>
+                        </i>
+                    </b>
+                </p>
+                <p class="MsoNormal" style="page-break-after:avoid;">
+                    <span class="GramE">
+                        <span lang="EN-US" style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                            {!Project.background_description__c}
+                        </span>
+                    </span>
+                    <span lang="EN-US" style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                    </span>
+                </p>
+                <p class="MsoListParagraph" style="page-break-after:avoid;">
+                    <b style='mso-bidi-font-weight:normal'>
+                        <i style='mso-bidi-font-style:normal'>
+                            <span lang="EN-US" style='font-size:18.0pt;color:blue;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                                4. Project Scope
+                            </span>
+                        </i>
+                    </b>
+                </p>
+                <p class="MsoNormal" style="page-break-after:avoid;">
+                    <b style='mso-bidi-font-weight: normal'>
+                        <i style='mso-bidi-font-style:normal'>
+                            <span lang="EN-US" style='font-size:13.5pt;color:blue;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                                4.1 SWOT Analysis
+                            </span>
+                        </i>
+                    </b>
+                </p>
+                <p class="MsoNormal" style="page-break-after:avoid;">
+                    <span class="GramE">
+                        <span lang="EN-US" style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                            {!Project.swot_analysis_table_title__c}
+                        </span>
+                    </span>
+                    <span lang="EN-US" style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                    </span>
+                </p>
+                <table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0" style='border-collapse:collapse;mso-table-layout-alt:fixed;border:none;mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+                    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+                        <td width="78" valign="top" style='width:58.25pt;border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+                            <p class="MsoNormal" style='line-height:8.3pt'>
+                            </p>
+                        </td>
+                        <td width="262" valign="top" style='width:196.25pt;border:solid windowtext 1.0pt;border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+                            <p class="MsoNormal" style='mso-line-height-alt:8.3pt'>
+                            <b>
+                                <span lang="EN-US" style='font-size:12.0pt;font-family:"Times New Roman",serif'>Helpful</span>
+                            </b>
+                            <span lang="EN-US" style='font-size:8.0pt;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Times New Roman";color:red;mso-bidi-font-weight:bold'></span></p>
+                        </td>
+                        <td width="262" valign="top" style='width:196.3pt;border:solid windowtext 1.0pt;border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+                            <p class="MsoNormal" style='mso-line-height-alt:8.3pt'>
+                                <b>
+                                    <span lang="EN-US" style='font-size:12.0pt;font-family:"Times New Roman",serif'>Harmful</span>
+                                </b>
+                                <span lang="EN-US" style='font-size:8.0pt;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Times New Roman";color:red;mso-bidi-font-weight:bold'></span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr style='mso-yfti-irow:1'>
+                        <td width="78" valign="top" style='width:58.25pt;border:solid windowtext 1.0pt;border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+                            <p class="MsoNormal" style='mso-line-height-alt:8.3pt'>
+                                <b style='mso-bidi-font-weight: normal'>
+                                    <span lang="EN-US" style='font-size:12.0pt;font-family:"Times New Roman",serif'>
+                                        Internal
+                                        <span style='mso-bidi-font-weight:bold'><br/></span>
+                                        <span class="SpellE">Origin</span>
+                                    </span>
+                                </b>
+                            </p>
+                        </td>
+                        <td width="262" valign="top" style='width:196.25pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+                            <p class="MsoNormal">
+                                <b>
+                                    <span lang="EN-US" style='font-size:12.0pt;font-family:"Times New Roman",serif; line-height:106%;font-weight:bold;mso-bidi-font-weight:bold'>
+                                        STRENGTHS
+                                    </span>
+                                </b>
+                                <span lang="EN-US" style='font-size:8.0pt;line-height:105%;font-family:"Times New Roman",serif'>
+                                    <br/>
+                                </span>                                
+                                <span class="GramE">
+                                    <strong>
+                                        <span lang="EN-US" style='font-size:12.0pt;font-family:"Times New Roman",serif;line-height:106%;font-weight:normal;mso-bidi-font-weight:bold'>
+                                            {!Project.internal_helpful_strengths__c}
+                                        </span>
+                                    </strong>
+                                </span>
+                            </p>
+                        </td>
+                        <td width="262" valign="top" style='width:196.3t;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+                            <p class="MsoNormal">
+                                <b>
+                                    <span lang="EN-US" style='font-size:12.0pt;font-family:"Times New Roman",serif;line-height:106%;font-weight:bold;mso-bidi-font-weight:bold'>
+                                        WEAKNESSES
+                                    </span>
+                                </b>
+                                <span lang="EN-US" style='font-size:8.0pt;line-height:105%;font-family:"Times New Roman",serif'>
+                                    <br/>
+                                </span>                                
+                                <span class="GramE">
+                                    <strong>
+                                        <span lang="EN-US" style='font-size:12.0pt;font-family:"Times New Roman",serif;line-height:106%;font-weight:normal;mso-bidi-font-weight:bold'>
+                                            {!Project.internal_harmful_weaknesses__c}
+                                        </span>
+                                    </strong>
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr style='mso-yfti-irow:2;mso-yfti-lastrow:yes'>
+                        <td width="78" valign="top" style='width:58.25pt;border:solid windowtext 1.0pt;border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+                            <p class="MsoNormal" style='mso-line-height-alt:8.3pt'>
+                                <b style='mso-bidi-font-weight:normal'>
+                                    <span lang="EN-US" style='font-size:12.0pt;font-family:"Times New Roman",serif'>
+                                        External<span style='mso-bidi-font-weight:bold'><br/></span>
+                                        <span class="SpellE">Origin</span>
+                                    </span>
+                                </b>
+                            </p>
+                        </td>
+                        <td width="262" valign="top" style='width:196.25pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+                            <p class="MsoNormal" style='mso-line-height-alt:8.3pt'>
+                                <strong>
+                                    <span lang="EN-US" style='font-size:12.0pt;font-family:"Times New Roman",serif;font-weight:bold;mso-bidi-font-weight:bold'>OPPORTUNITIES</span>
+                                </strong>
+                                <span lang="EN-US" style='font-size:8.0pt;line-height:105%;font-family:"Times New Roman",serif'>
+                                    <br/>
+                                </span>                                
+                                <span class="GramE">
+                                    <strong>
+                                        <span lang="EN-US" style='font-size:12.0pt;font-family:"Times New Roman",serif;line-height:106%;font-weight:normal;mso-bidi-font-weight:bold'>
+                                            {!Project.external_helpful_strengths__c}
+                                        </span>
+                                    </strong>
+                                </span>
+                            </p>
+                        </td>
+                        <td width="262" valign="top" style='width:196.3pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+                            <p class="MsoNormal" style='mso-line-height-alt:8.3pt'>
+                                <strong>
+                                    <span lang="EN-US" style='font-size:12.0pt;font-family:"Times New Roman",serif;font-weight:bold;mso-bidi-font-weight:bold'>THREATS</span>
+                                </strong>
+                                <span lang="EN-US" style='font-size:8.0pt;line-height:105%;font-family:"Times New Roman",serif'>
+                                    <br/>
+                                </span>                                
+                                <span class="GramE">
+                                    <strong>
+                                        <span lang="EN-US" style='font-size:12.0pt;font-family:"Times New Roman",serif;line-height:106%;font-weight:normal;mso-bidi-font-weight:bold'>
+                                            {!Project.external_harmful_weaknesses__c}
+                                        </span>
+                                    </strong>
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+                <br/>
+                <p class="MsoNormal" style="page-break-after:avoid;">
+                    <b style='mso-bidi-font-weight: normal'>
+                        <i style='mso-bidi-font-style:normal'>
+                            <span lang="EN-US" style='font-size:13.5pt;color:blue;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                                4.2 Project Scope
+                            </span>
+                        </i>
+                    </b>
+                </p>
+                <p class="MsoNormal" style="page-break-after:avoid;">
+                    <b>
+                        <span lang="EN-US" style='font-size:13.5pt;color:blue;line-height:105%;font-family:"Times New Roman",serif; mso-fareast-font-family:"Times New Roman"'>
+                            In scope
+                        </span>
+                    </b>
+                </p>
+                <p class="MsoNormal" style="page-break-after:avoid;">
+                    <span class="GramE">
+                        <span lang="EN-US" style='font-size:12.0pt;line-height:105%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";mso-bidi-font-weight:bold'>
+                            {!Project.in_scope__c}
+                        </span>
+                    </span>
+                </p>
+                <p class="MsoNormal" style="page-break-after:avoid;">
+                    <b>
+                        <span lang="EN-US" style='font-size:13.5pt;color:blue;line-height:105%;font-family:"Times New Roman",serif; mso-fareast-font-family:"Times New Roman"'>
+                            Out of Scope
+                        </span>
+                    </b>
+                    <b>
+                        <span lang="EN-US" style='font-size:12.0pt;line-height:105%;font-family:"Times New Roman",serif; mso-fareast-font-family:"Times New Roman"'>
+                        </span>
+                    </b>
+                </p>
+                <p class="MsoNormal" style="page-break-after:avoid;">
+                    <span class="GramE">
+                        <span lang="EN-US" style='font-size:12.0pt;line-height:105%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";mso-bidi-font-weight:bold'>
+                            {!Project.out_of_scope__c}
+                        </span>
+                    </span>
+                </p>
+                <p class="MsoListParagraph" style="page-break-after:avoid;">
+                    <b style='mso-bidi-font-weight:normal'>
+                        <i style='mso-bidi-font-style:normal'>
+                            <span lang="EN-US" style='font-size:18.0pt;color:blue;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                                5.  Purpose: Goals  Objectives
+                            </span>
+                        </i>
+                    </b>
+                </p>
+                <p class="MsoNormal" style="page-break-after:avoid;">
+                    <span class="GramE">
+                        <span lang="EN-US" style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                            {!Project.goals_and_objectives__c}
+                        </span>
+                    </span>
+                    <span lang="EN-US" style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                    </span>
+                </p>
+                <p class="MsoListParagraph" style="page-break-after:avoid;">
+                    <b style='mso-bidi-font-weight:normal'>
+                        <i style='mso-bidi-font-style:normal'>
+                            <span lang="EN-US" style='font-size:18.0pt;color:blue;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                                6.  Strategies
+                            </span>
+                        </i>
+                    </b>
+                </p>
+                <p class="MsoNormal" style="page-break-after:avoid;">
+                    <span class="GramE">
+                        <span lang="EN-US" style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                            {!Project.strategies__c}
+                        </span>
+                    </span>
+                </p>
+                <p class="MsoNormal" style="page-break-after:avoid;">
+                    <b style='mso-bidi-font-weight: normal'>
+                        <i style='mso-bidi-font-style:normal'>
+                            <span lang="EN-US" style='font-size:13.5pt;color:blue;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                                6.1  Digital Strategy
+                            </span>
+                        </i>
+                    </b>
+                </p>
+                <p class="MsoNormal" style="page-break-after:avoid;">
+                    <span class="GramE">
+                        <span lang="EN-US" style='font-size:12.0pt;line-height:105%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";mso-bidi-font-weight:bold'>
+                            {!Project.digital_strategy__c}
+                        </span>
+                    </span>
+                </p>
+                <p class="MsoNormal" style="page-break-after:avoid;">
+                    <b style='mso-bidi-font-weight: normal'>
+                        <i style='mso-bidi-font-style:normal'>
+                            <span lang="EN-US" style='font-size:13.5pt;color:blue;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                                6.2 Philanthropy
+                            </span>
+                        </i>
+                    </b>
+                </p>
+                <p class="MsoNormal" style="page-break-after:avoid;">
+                    <span class="GramE">
+                        <span lang="EN-US" style='font-size:12.0pt;line-height:105%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";mso-bidi-font-weight:bold'>
+                            {!Project.philanthropy__c}
+                        </span>
+                    </span>
+                </p>
+                <p class="MsoNormal" style="page-break-after:avoid;">
+                    <b style='mso-bidi-font-weight: normal'>
+                        <i style='mso-bidi-font-style:normal'>
+                            <span lang="EN-US" style='font-size:13.5pt;color:blue;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                                6.3 Coalition
+                            </span>
+                        </i>
+                    </b>
+                </p>
+                <p class="MsoNormal" style="page-break-after:avoid;">
+                    <span class="GramE">
+                        <span lang="EN-US" style='font-size:12.0pt;line-height:105%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";mso-bidi-font-weight:bold'>
+                            {!Project.Coalition_Strategy__c}
+                        </span>
+                    </span>
+                </p>
+                <p class="MsoListParagraph" style="page-break-after:avoid;">
+                    <b style='mso-bidi-font-weight:normal'>
+                        <i style='mso-bidi-font-style:normal'>
+                            <span lang="EN-US" style='font-size:18.0pt;color:blue;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                                7. Timelines &amp; Schedules
+                            </span>
+                        </i>
+                    </b>
+                </p>
+                <p class="MsoNormal" style="page-break-after:avoid;">
+                    <span class="GramE">
+                        <span lang="EN-US" style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                            {!Project.timeline_schedule__c}
+                        </span>
+                    </span>
+                    <span lang="EN-US" style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                    </span>
+                </p>
+                <p class="MsoListParagraph" style="page-break-after:avoid;">
+                    <b style='mso-bidi-font-weight:normal'>
+                        <i style='mso-bidi-font-style:normal'>
+                            <span lang="EN-US" style='font-size:18.0pt;color:blue;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                                8. Tactics &amp; Deliverables
+                            </span>
+                        </i>
+                    </b>
+                </p>
+                <table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" style='border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt; mso-yfti-tbllook:1184;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+                    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;page-break-inside:avoid'>
+                        <td width="66" style='width:43.6pt;padding:0in 5.4pt 0in 5.4pt'>
+                            <p class="MsoNormal" style='margin-bottom:0in;margin-bottom:.0001pt;line-height:normal'>
+                                <span class="SpellE">
+                                    <b style='mso-bidi-font-weight:normal'>
+                                        <span style='font-size:12.0pt;font-family:"Times New Roman",serif;mso-ansi-language:  #580A;mso-fareast-language:#580A'>
+                                            Name
+                                        </span>
+                                    </b>
+                                </span>
+                            </p>
+                        </td>
+                        <td width="100" style='width:75.3pt;padding:0in 5.4pt 0in 5.4pt'>
+                            <p class="MsoNormal" style='margin-bottom:0in;margin-bottom:.0001pt;line-height:normal'>
+                                <span class="SpellE">
+                                    <b style='mso-bidi-font-weight:normal'>
+                                        <span style='font-size:12.0pt;font-family:"Times New Roman",serif;mso-ansi-language: #580A;mso-fareast-language:#580A'>
+                                            Tactic
+                                        </span>
+                                    </b>
+                                </span>
+                                <b style='mso-bidi-font-weight:normal'>
+                                    <span style='font-size:12.0pt;font-family:"Times New Roman",serif;mso-ansi-language:#580A;mso-fareast-language:#580A'>
+                                        <span class="SpellE">or</span> 
+                                        <span class="SpellE">Deliverable</span>
+                                    </span>
+                                </b>
+                            </p>
+                        </td>
+                        <td width="224" style='width:174.45pt;border:solid windowtext 1.0pt;border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt; padding:0in 5.4pt 0in 5.4pt'>
+                            <p class="MsoNormal" style='margin-bottom:0in;margin-bottom:.0001pt;line-height: normal'>
+                                <b style='mso-bidi-font-weight:normal'>
+                                    <span style='font-size:12.0pt; font-family:"Times New Roman",serif;mso-ansi-language:#580A;mso-fareast-language:#580A'>
+                                        Short <span class="SpellE">Description</span>
+                                    </span>
+                                </b>
+                            </p>
+                        </td>
+                        <td style='padding:0in 5.4pt 0in 5.4pt'>
+                            <p class="MsoNormal" style='margin-bottom:0in;margin-bottom:.0001pt;line-height:normal'>
+                                <span class="SpellE">
+                                    <b style='mso-bidi-font-weight:normal'>
+                                        <span style='font-size:12.0pt;font-family:"Times New Roman",serif;mso-ansi-language: #580A;mso-fareast-language:#580A'>
+                                            Contact
+                                        </span>
+                                    </b>
+                                </span>
+                            </p>
+                        </td>
+                        <td style='padding:0in 5.4pt 0in 5.4pt'>
+                            <p class="MsoNormal" style='margin-bottom:0in;margin-bottom:.0001pt;line-height:normal'>
+                                <b style='mso-bidi-font-weight:normal'>
+                                    <span style='font-size:12.0pt;font-family:"Times New Roman",serif;mso-ansi-language:#580A;mso-fareast-language:#580A'>
+                                        % Complete
+                                    </span>
+                                </b>
+                            </p>
+                        </td>
+                        <td style='padding:0in 5.4pt 0in 5.4pt'>
+                            <p class="MsoNormal" style='margin-bottom:0in;margin-bottom:.0001pt;line-height:normal'>
+                                <b style='mso-bidi-font-weight:normal'>
+                                    <span style='font-size:12.0pt;font-family:"Times New Roman",serif;mso-ansi-language:#580A;mso-fareast-language:#580A'>
+                                        Status
+                                    </span>
+                                </b>
+                            </p>
+                        </td>
+                    </tr>
+                    <apex:repeat value="{!TactDelivarables}" var="TactDelivarable">
+                        <tr style='mso-yfti-irow:1;page-break-inside:avoid'>
+                            <td width="66" style='width:43.6pt;padding:0in 5.4pt 0in 5.4pt'>
+                                <p class="MsoNormal" style='margin-bottom:0in;margin-bottom:.0001pt;line-height:normal'>
+                                    <span style='font-size:12.0pt;font-family:"Times New Roman",serif;mso-ansi-language:#580A;mso-fareast-language:#580A'>
+                                        {!TactDelivarable.Name}
+                                    </span>
+                                </p>
+                            </td>
+                            <td width="100" style='width:75.3pt;padding:0in 5.4pt 0in 5.4pt'>
+                                <p class="MsoNormal" style='margin-bottom:0in;margin-bottom:.0001pt;line-height:normal'>
+                                    <span class="SpellE">
+                                        <span style='font-size:12.0pt;font-family:"Times New Roman",serif;mso-ansi-language:#580A;mso-fareast-language:#580A'>
+                                            {!TactDelivarable.Tactic_or_Deliverable__c}
+                                        </span>
+                                    </span>
+                                </p>
+                            </td>
+                            <td width="224" style='width:174.45pt;padding:0in 5.4pt 0in 5.4pt'>
+                                <p class="MsoNormal" style='margin-bottom:0in;margin-bottom:.0001pt;text-align:justify;line-height:normal'>
+                                    <span class="SpellE">
+                                        {!TactDelivarable.Short_Description__c}
+                                    </span>
+                                </p>
+                            </td>
+                            <td style='padding:0in 5.4pt 0in 5.4pt'>
+                                <p class="MsoNormal" style='margin-bottom:0in;margin-bottom:.0001pt;text-align:justify;line-height:normal'>
+                                    <span class="SpellE">
+                                        {!TactDelivarable.Contact__r.name}
+                                    </span>
+                                </p>
+                            </td>
+                            <td style='padding:0in 5.4pt 0in 5.4pt'>
+                                <p class="MsoNormal" style='margin-bottom:0in;margin-bottom:.0001pt;text-align:justify;line-height:normal'>
+                                    <span class="SpellE">
+                                        {!TactDelivarable.Completed__c}
+                                    </span>
+                                </p>
+                            </td>
+                            <td style='padding:0in 5.4pt 0in 5.4pt'>
+                                <p class="MsoNormal" style='margin-bottom:0in;margin-bottom:.0001pt;text-align:justify;line-height:normal'>
+                                    <span class="SpellE">
+                                        {!TactDelivarable.Status__c}
+                                    </span>
+                                </p>
+                            </td>
+                        </tr>
+                    </apex:repeat>
+                </table>
+                <br/>
+                <p class="MsoListParagraph" style="page-break-after:avoid;">
+                    <b style='mso-bidi-font-weight:normal'>
+                        <i style='mso-bidi-font-style:normal'>
+                            <span lang="EN-US" style='font-size:18.0pt;color:blue;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                                9. Milestones &amp; Metrics
+                            </span>
+                        </i>
+                    </b>
+                </p>
+                <table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0" style='border-collapse:collapse;mso-table-layout-alt:fixed;border:none;mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+                    <thead>
+                        <tr>
+                            <th style="text-align:left;">Milestone</th>
+                            <th style="text-align:left;">Responsible Person</th>
+                            <th style="text-align:left;">Created</th>
+                            <th style="text-align:left;">Est Completion Date</th>
+                            <th style="text-align:left;">Actual Completion Date</th>
+                            <th style="text-align:left;">% Completed</th>
+                            <th style="text-align:left;">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <apex:repeat value="{!Milestones}" var="Milestone">
+                            <tr>
+                                <td>{!Milestone.Name}</td>
+                                <td>{!Milestone.Responsible_Person__r.LastName} {!Milestone.Responsible_Person__r.FirstName}</td>
+                                <td>
+                                    <apex:outputText value="{0,date,MMMM dd, yyyy HH:mm}">
+                                        <apex:param value="{!Milestone.CreatedDate}" />
+                                    </apex:outputText>
+                                </td>
+                                <td>
+                                    <apex:outputText value="{0,date,MMMM dd, yyyy}">
+                                        <apex:param value="{!Milestone.Est_Completion_Date__c}" />
+                                    </apex:outputText>
+                                </td>
+                                <td>
+                                    <apex:outputText value="{0,date,MMMM dd, yyyy}">
+                                        <apex:param value="{!Milestone.Actual_Completion_Date__c}" />
+                                    </apex:outputText>
+                                </td>
+                                <td>{!Milestone.Milestone_Percent_Completed__c}</td>
+                                <td>{!Milestone.Milestone_Status__c}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="7">
+                                    <strong>Description:</strong> {!Milestone.Milestone_Description__c}
+                                </td>
+                            </tr>
+                        </apex:repeat>
+                    </tbody>
+                </table>
+                <br/>
+                <p class="MsoListParagraph" style="page-break-after:avoid;">
+                    <b style='mso-bidi-font-weight:normal'>
+                        <i style='mso-bidi-font-style:normal'>
+                            <span lang="EN-US" style='font-size:18.0pt;color:blue;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                                10. Resources
+                            </span>
+                        </i>
+                    </b>
+                </p>
+                <p class="MsoNormal" style="page-break-after:avoid;">
+                    <b>
+                        <span lang="EN-US" style='font-size:13.5pt;color:blue;line-height:105%;font-family:"Times New Roman",serif; mso-fareast-font-family:"Times New Roman"'>
+                            Project Team Members
+                        </span>
+                    </b>
+                </p>
+                <table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0" style='border-collapse:collapse;mso-table-layout-alt:fixed;border:none;mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+                    <thead>
+                        <tr>
+                            <th style="text-align:left;">Team Member</th>
+                            <th style="text-align:left;">Member Role</th>
+                            <th style="text-align:left;">Project Assignment</th>
+                            <th style="text-align:left;">% Time Q1</th>
+                            <th style="text-align:left;">% Time Q2</th>
+                            <th style="text-align:left;">% Time Q3</th>
+                            <th style="text-align:left;">% Time Q4</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <apex:repeat value="{!ProjectTeamMembers}" var="ProjectTeamMember">
+                            <tr>
+                                <td>{!ProjectTeamMember.Contact__r.LastName} {!ProjectTeamMember.Contact__r.FirstName}</td>
+                                <td>{!ProjectTeamMember.Member_Role__c}</td>
+                                <td>{!ProjectTeamMember.Project_Assignment__c}</td>
+                                <td>{!ProjectTeamMember.Time_commitment_to_LPA_team_Q1__c}</td>
+                                <td>{!ProjectTeamMember.Time_commitment_to_LPA_team_Q2__c}</td>
+                                <td>{!ProjectTeamMember.Time_commitment_to_LPA_team_Q3__c}</td>
+                                <td>{!ProjectTeamMember.Time_commitment_to_LPA_team_Q4__c}</td>
+                            </tr>
+                        </apex:repeat>
+                    </tbody>
+                </table>
+                <br/>
+                <p class="MsoNormal" style="page-break-after:avoid;">
+                    <b>
+                        <span lang="EN-US" style='font-size:13.5pt;color:blue;line-height:105%;font-family:"Times New Roman",serif; mso-fareast-font-family:"Times New Roman"'>
+                            Other Participants
+                        </span>
+                    </b>
+                </p>
+                <table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" width="599" style='width:449.6pt;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt; mso-yfti-tbllook:1184;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+                    <thead>
+                        <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;height:23.0pt'>
+                            <td width="197" style='width:148.1pt;padding:0in 5.4pt 0in 5.4pt;height:23.0pt'>
+                                <p class="MsoNormal" style='margin-bottom:0in;margin-bottom:.0001pt;line-height:normal'>
+                                    <b>
+                                        <span lang="EN-US" style='font-size:12.0pt;font-family:"Times New Roman",serif'>
+                                            Participant Name
+                                        </span>
+                                    </b>
+                                </p>
+                            </td>
+                            <td width="132" style='width:99.0pt;padding:0in 5.4pt 0in 5.4pt;height:23.0pt'>
+                                <p class="MsoNormal" style='margin-bottom:0in;margin-bottom:.0001pt; line-height:normal'>
+                                    <b>
+                                        <span lang="EN-US" style='font-size:12.0pt;font-family:"Times New Roman",serif'>
+                                           Role
+                                        </span>
+                                    </b>
+                                </p>
+                            </td>
+                            <td width="270" style='width:202.5pt;padding:0in 5.4pt 0in 5.4pt;height:23.0pt'>
+                                <p class="MsoNormal" style='margin-bottom:0in;margin-bottom:.0001pt;line-height:normal'>
+                                    <b>
+                                        <span lang="EN-US" style='font-size:12.0pt;font-family:"Times New Roman",serif'>
+                                            Project Role
+                                        </span>
+                                    </b>
+                                </p>
+                            </td>
+                        </tr>
+                    </thead>
+                    <apex:repeat value="{!OtherParticipants}" var="OtherParticipant">
+                        <tr style='mso-yfti-irow:1;height:24.3pt'>
+                            <td width="197" style='width:148.1pt;padding:0in 5.4pt 0in 5.4pt;height:24.3pt'>
+                                <p class="MsoNormal" style='margin-bottom:0in;margin-bottom:.0001pt;line-height:normal'>
+                                    <span lang="EN-US" style='font-size:12.0pt;font-family:"Times New Roman",serif'>
+                                        {!OtherParticipant.Participant_Name__r.LastName} {!OtherParticipant.Participant_Name__r.FirstName}
+                                    </span>
+                                </p>
+                            </td>
+                            <td width="132" style='width:99.0pt;padding:0in 5.4pt 0in 5.4pt;height:24.3pt'>
+                                <p class="MsoNormal" style='margin-bottom:0in;margin-bottom:.0001pt;line-height:normal'>
+                                    <span lang="EN-US" style='font-size:12.0pt;font-family:"Times New Roman",serif'>
+                                        {!OtherParticipant.Role__c}
+                                    </span>
+                                </p>
+                            </td>
+                            <td width="270" style='width:202.5pt;padding:0in 5.4pt 0in 5.4pt;height:24.3pt'>
+                                <p class="MsoNormal" style='margin-bottom:0in;margin-bottom:.0001pt;line-height:normal'>
+                                    <span lang="EN-US" style='font-size:12.0pt;font-family:"Times New Roman",serif'>
+                                        {!OtherParticipant.Project_Role__c}
+                                    </span>
+                                </p>
+                            </td>
+                        </tr>
+                    </apex:repeat>
+                </table>
+                <br/>
+                <p class="MsoListParagraph" style="page-break-after:avoid;">
+                    <b style='mso-bidi-font-weight:normal'>
+                        <i style='mso-bidi-font-style:normal'>
+                            <span lang="EN-US" style='font-size:18.0pt;color:blue;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                                11. Stakeholder Information 
+                            </span>
+                        </i>
+                    </b>
+                </p>
+                <p class="MsoNormal" style="page-break-after:avoid;">
+                    <b style='mso-bidi-font-weight:normal'>
+                        <i style='mso-bidi-font-style:normal'>
+                            <span lang="EN-US" style='font-size:13.5pt;color:blue;line-height:105%;font-family:"Times New Roman",serif; mso-fareast-font-family:"Times New Roman"'>
+                                Stakeholder Summary
+                            </span>
+                        </i>
+                    </b>
+                </p>
+                <table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0" style='border-collapse:collapse;mso-table-layout-alt:fixed;border:none;mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+                    <thead>
+                        <tr>
+                            <th style="text-align:left;">Stakeholder Organization</th>
+                            <th style="text-align:left;">Type</th>
+                            <th style="text-align:left;">Stakeholder Contact</th>
+                            <th style="text-align:left;">SCE relationship Contact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <apex:repeat value="{!StakeholderAnalysis}" var="StakeholderAnalyse">
+                            <tr>
+                                <td>{!StakeholderAnalyse.Stakeholder_Organization__r.name}</td>
+                                <td>{!StakeholderAnalyse.Stakeholder_Summary_Category__c}</td>
+                                <td>{!StakeholderAnalyse.Stakeholder_Contact__r.LastName} {!StakeholderAnalyse.Stakeholder_Contact__r.FirstName}</td>
+                                <td>{!StakeholderAnalyse.SCE_Relationship_Contact__r.LastName} {!StakeholderAnalyse.SCE_Relationship_Contact__r.FirstName}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="4"><strong>Background:</strong> {!StakeholderAnalyse.Background__c}</td>
+                            </tr>
+                        </apex:repeat>
+                    </tbody>
+                </table>
+                <br/>
+                <p class="MsoNormal" style="page-break-after:avoid;">
+                    <b>
+                        <span lang="EN-US" style='font-size:13.5pt;color:blue;line-height:105%;font-family:"Times New Roman",serif; mso-fareast-font-family:"Times New Roman"'>
+                            Key Stakeholder Analysis
+                        </span>
+                    </b>
+                </p>
+                <table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0" style='border-collapse:collapse;mso-table-layout-alt:fixed;border:none;mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+                    <tr style='mso-yfti-irow:1'>
+                        <td valign="top" width="299.5" style='width:224.8pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+                            <p class="MsoNormal">
+                                <b style='mso-bidi-font-weight: normal'>
+                                    <span lang="EN-US" style='font-size:12.0pt;font-family:"Times New Roman",serif; line-height:106%;mso-bidi-font-weight:bold'>
+                                        Partner
+                                    </span>
+                                </b>
+                                <br/>
+                                <span class="GramE">
+                                    <strong>
+                                        <span lang="EN-US" style='font-size:12.0pt;font-family:"Times New Roman",serif;line-height:106%;font-weight:normal;mso-bidi-font-weight:bold'>
+                                            {!Project.partner__c}
+                                        </span>
+                                    </strong>
+                                </span>
+                            </p>
+                        </td>
+                        <td valign="top" width="299.5" style='width:224.8pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+                            <p class="MsoNormal">
+                                <b style='mso-bidi-font-weight: normal'>
+                                    <span lang="EN-US" style='font-size:12.0pt;font-family:"Times New Roman",serif;line-height:106%;mso-bidi-font-weight:bold'>
+                                        Engage
+                                    </span>
+                                </b>
+                                <br/>
+                                <span class="GramE">
+                                    <strong>
+                                        <span lang="EN-US" style='font-size:12.0pt;font-family:"Times New Roman",serif;line-height:106%;font-weight:normal;mso-bidi-font-weight:bold'>
+                                            {!Project.engage__c }
+                                        </span>
+                                    </strong>
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr style='mso-yfti-irow:2;mso-yfti-lastrow:yes'>
+                        <td valign="top" style='border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+                            <p class="MsoNormal" style='mso-line-height-alt:8.3pt'>
+                                <b style='mso-bidi-font-weight: normal'>
+                                    <span lang="EN-US" style='font-size:12.0pt;font-family:"Times New Roman",serif;mso-bidi-font-weight:bold'>
+                                        Empower
+                                    </span>
+                                </b>
+                                <br/>
+                                <span class="GramE">
+                                    <span lang="EN-US" style='font-size:12.0pt;font-family:"Times New Roman",serif;line-height:106%;font-weight:normal;mso-bidi-font-weight:bold'>
+                                        
+                                        {!Project.empower__c}
+                                    </span>
+                                </span>
+                            </p>
+                        </td>
+                        <td valign="top" style='border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+                            <p class="MsoNormal" style='mso-line-height-alt:8.3pt'>
+                                <b style='mso-bidi-font-weight: normal'>
+                                    <span lang="EN-US" style='font-size:12.0pt;font-family:"Times New Roman",serif;mso-bidi-font-weight:bold'>
+                                        Monitor
+                                    </span>
+                                </b>
+                                <br/>
+                                <span class="GramE">
+                                    <strong>
+                                        <span lang="EN-US" style='font-size:12.0pt;font-family:"Times New Roman",serif;line-height:106%;font-weight:normal;mso-bidi-font-weight:bold'>
+                                            {!Project.monitor__c}
+                                        </span>
+                                    </strong>
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                
+                </table>
+                <br/>
+                <p class="MsoListParagraph" style="page-break-after:avoid;">
+                    <b style='mso-bidi-font-weight:normal'>
+                        <i style='mso-bidi-font-style:normal'>
+                            <span lang="EN-US" style='font-size:18.0pt;color:blue;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                                12. Risks &amp; Issues Log 
+                            </span>
+                        </i>
+                    </b>
+                </p>
+                <p class="MsoNormal" style="page-break-after:avoid;">
+                    <b style='mso-bidi-font-weight:normal'>
+                        <i style='mso-bidi-font-style:normal'>
+                            <span lang="EN-US" style='font-size:13.5pt;color:blue;line-height:105%;font-family:"Times New Roman",serif; mso-fareast-font-family:"Times New Roman"'>
+                                Risks Summary
+                            </span>
+                        </i>
+                    </b>
+                </p>
+                <table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0" style='border-collapse:collapse;mso-table-layout-alt:fixed;border:none;mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+                    <thead>
+                        <tr>
+                            <th style="text-align:left;" colspan="2">Political</th>
+                            <th style="text-align:left;" colspan="2">Community</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:Left">City Council(s):</td>
+                            <td>
+                                <apex:image url="{!if(Project.City_Council__c=='Red', RedCircleUrl, if(Project.City_Council__c=='Green',GreenCircleUrl,if(Project.City_Council__c=='Yellow',YellowCircleUrl,'')))}" width="30" height="30" rendered="{!if(ISNULL(Project.City_Council__c),false,true)}"/>
+                            </td>
+                            <td style="text-align:Left">Sensitive Land Users:</td>
+                            <td>
+                                <apex:image url="{!if(Project.Sensitive_Land_Users__c=='Red', RedCircleUrl, if(Project.Sensitive_Land_Users__c=='Green',GreenCircleUrl,if(Project.Sensitive_Land_Users__c=='Yellow',YellowCircleUrl,'')))}" width="30" height="30" rendered="{!if(ISNULL(Project.Sensitive_Land_Users__c),false,true)}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:Left">County Board of Supervisors:</td>
+                            <td>
+                                <apex:image url="{!if(Project.County_Board_Of_Supervisors__c=='Red', RedCircleUrl, if(Project.County_Board_Of_Supervisors__c=='Green',GreenCircleUrl,if(Project.County_Board_Of_Supervisors__c=='Yellow',YellowCircleUrl,'')))}" width="30" height="30" rendered="{!if(ISNULL(Project.County_Board_Of_Supervisors__c),false,true)}"/>
+                            </td>
+                            <td style="text-align:Left">Sensitive Property Owners:</td>
+                            <td>
+                                <apex:image url="{!if(Project.Sensitive_Property_Owners__c=='Red', RedCircleUrl, if(Project.Sensitive_Property_Owners__c=='Green',GreenCircleUrl,if(Project.Sensitive_Property_Owners__c=='Yellow',YellowCircleUrl,'')))}" width="30" height="30" rendered="{!if(ISNULL(Project.Sensitive_Property_Owners__c),false,true)}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:Left">State Legislature:</td>
+                            <td>
+                                <apex:image url="{!if(Project.State_Legislature__c=='Red', RedCircleUrl, if(Project.State_Legislature__c=='Green',GreenCircleUrl,if(Project.State_Legislature__c=='Yellow',YellowCircleUrl,'')))}" width="30" height="30" rendered="{!if(ISNULL(Project.State_Legislature__c),false,true)}"/>
+                            </td>
+                            <td style="text-align:Left">Visual Impact:</td>
+                            <td>
+                                <apex:image url="{!if(Project.Visual_Impact__c=='Red', RedCircleUrl, if(Project.Visual_Impact__c=='Green',GreenCircleUrl,if(Project.Visual_Impact__c=='Yellow',YellowCircleUrl,'')))}" width="30" height="30" rendered="{!if(ISNULL(Project.Visual_Impact__c),false,true)}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:Left">State Legislation:</td>
+                            <td>
+                                <apex:image url="{!if(Project.State_Legislation__c=='Red', RedCircleUrl, if(Project.State_Legislation__c=='Green',GreenCircleUrl,if(Project.State_Legislation__c=='Yellow',YellowCircleUrl,'')))}" width="30" height="30" rendered="{!if(ISNULL(Project.State_Legislation__c),false,true)}"/>
+                            </td>
+                            <td style="text-align:Left">Special Interest Groups:</td>
+                            <td>
+                                <apex:image url="{!if(Project.Special_Interest_Groups__c=='Red', RedCircleUrl, if(Project.Special_Interest_Groups__c=='Green',GreenCircleUrl,if(Project.Special_Interest_Groups__c=='Yellow',YellowCircleUrl,'')))}" width="30" height="30" rendered="{!if(ISNULL(Project.Special_Interest_Groups__c),false,true)}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:Left">Federal Legislature:</td>
+                            <td>
+                                <apex:image url="{!if(Project.Federal_Legislature__c=='Red', RedCircleUrl, if(Project.Federal_Legislature__c=='Green',GreenCircleUrl,if(Project.Federal_Legislature__c=='Yellow',YellowCircleUrl,'')))}" width="30" height="30" rendered="{!if(ISNULL(Project.Federal_Legislature__c),false,true)}"/>
+                            </td>
+                            <td style="text-align:Left">Community Character:</td>
+                            <td>
+                                <apex:image url="{!if(Project.Community_Character__c=='Red', RedCircleUrl, if(Project.Community_Character__c=='Green',GreenCircleUrl,if(Project.Community_Character__c=='Yellow',YellowCircleUrl,'')))}" width="30" height="30" rendered="{!if(ISNULL(Project.Community_Character__c),false,true)}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:Left">Federal Legislation:</td>
+                            <td>
+                                <apex:image url="{!if(Project.Federal_Legislation__c=='Red', RedCircleUrl, if(Project.Federal_Legislation__c=='Green',GreenCircleUrl,if(Project.Federal_Legislation__c=='Yellow',YellowCircleUrl,'')))}" width="30" height="30" rendered="{!if(ISNULL(Project.Federal_Legislation__c),false,true)}"/>
+                            </td>
+                            <td style="text-align:Left">Media:</td>
+                            <td>
+                                <apex:image url="{!if(Project.Media__c=='Red', RedCircleUrl, if(Project.Media__c=='Green',GreenCircleUrl,if(Project.Media__c=='Yellow',YellowCircleUrl,'')))}" width="30" height="30" rendered="{!if(ISNULL(Project.Media__c),false,true)}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:Left" colspan="2"></td>
+                            <td style="text-align:Left">Previous Controversy:</td>
+                            <td>
+                                <apex:image url="{!if(Project.Previous_Controversy__c=='Red', RedCircleUrl, if(Project.Previous_Controversy__c=='Green',GreenCircleUrl,if(Project.Previous_Controversy__c=='Yellow',YellowCircleUrl,'')))}" width="30" height="30" rendered="{!if(ISNULL(Project.Previous_Controversy__c),false,true)}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:Left" colspan="2"></td>
+                            <td style="text-align:Left">Clarity of Project Need to Public:</td>
+                            <td>
+                                <apex:image url="{!if(Project.Clarity_of_Project_Need_toPublic__c=='Red', RedCircleUrl, if(Project.Clarity_of_Project_Need_toPublic__c=='Green',GreenCircleUrl,if(Project.Clarity_of_Project_Need_toPublic__c=='Yellow',YellowCircleUrl,'')))}" width="30" height="30" rendered="{!if(ISNULL(Project.Clarity_of_Project_Need_toPublic__c),false,true)}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:Left" colspan="2"></td>
+                            <td style="text-align:Left">Political Issue:</td>
+                            <td>
+                                <apex:image url="{!if(Project.Political_Issue__c=='Red', RedCircleUrl, if(Project.Political_Issue__c=='Green',GreenCircleUrl,if(Project.Political_Issue__c=='Yellow',YellowCircleUrl,'')))}" width="30" height="30" rendered="{!if(ISNULL(Project.Political_Issue__c),false,true)}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:Left" colspan="2"></td>
+                            <td style="text-align:Left">Grassroots Community Opposition: </td>
+                            <td>
+                                <apex:image url="{!if(Project.Grassroots_Community_Opposition__c=='Red', RedCircleUrl, if(Project.Grassroots_Community_Opposition__c=='Green',GreenCircleUrl,if(Project.Grassroots_Community_Opposition__c=='Yellow',YellowCircleUrl,'')))}" width="30" height="30" rendered="{!if(ISNULL(Project.Grassroots_Community_Opposition__c),false,true)}"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br/>
+                <p class="MsoNormal" style="page-break-after:avoid;">
+                    <b style='mso-bidi-font-weight:normal'>
+                        <i style='mso-bidi-font-style:normal'>
+                            <span lang="EN-US" style='font-size:13.5pt;color:blue;line-height:105%;font-family:"Times New Roman",serif; mso-fareast-font-family:"Times New Roman"'>
+                                Risks Assessment
+                            </span>
+                        </i>
+                    </b>
+                </p>
+                <table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0" style='border-collapse:collapse;mso-table-layout-alt:fixed;border:none;mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+                    <thead>
+                        <tr>
+                            <th style="text-align:left;">Risk and Issue Name</th>
+                            <th style="text-align:left;">Risk or Issue</th>
+                            <th style="text-align:left;">Last Name</th>
+                            <th style="text-align:left;">Description</th>
+                            <th style="text-align:left;">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <apex:repeat value="{!RisksIssues}" var="RisksIssue">
+                            <tr>
+                                <td>{!RisksIssue.Name}</td>
+                                <td>{!RisksIssue.Risk_or_Issue__c}</td>
+                                <td>{!RisksIssue.Risk_Issue_Assigned_To__r.LastName}</td>
+                                <td>{!RisksIssue.Risk_Issue_Description__c}</td>
+                                <td>{!RisksIssue.Risk_Issue_Status__c}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="5">
+                                    <strong>Mitigation Measure(s):</strong> {!RisksIssue.Mitigation_Measure_s__c}
+                                </td>
+                            </tr>
+                        </apex:repeat>
+                    </tbody>
+                </table>
+                <br/>
+                <p class="MsoListParagraph" style="page-break-after:avoid;">
+                    <b style='mso-bidi-font-weight:normal'>
+                        <i style='mso-bidi-font-style:normal'>
+                            <span lang="EN-US" style='font-size:18.0pt;color:blue;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                                APPENDIX 
+                            </span>
+                        </i>
+                    </b>
+                </p>
+                <p class="MsoNormal" style="page-break-after:avoid;">
+                    <span class="GramE">
+                        <span lang="EN-US" style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                            {!Project.Plan_Appendix__c}
+                        </span>
+                    </span>
+                    <span lang="EN-US" style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>
+                    </span>
+                </p>
+            </div>
+                        
+            <div class="hrdftrt">
+                <div style='mso-element:header;margin:0in 0in 0in -18in' id="h1">
+                    <p class="MsoHeader" align="center" style='text-align:center;page-break-after:auto;'>
+                        <span lang="EN-US" style='font-size:12.0pt;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";color:red'>
+                            COMPANY CONFIDENTIAL
+                        </span>
+                    </p>
+    
+                </div>
+                <div style='mso-element:footer;position:relative;margin:0in 0in 0in -18in;' id="f1"> 
+                    <table class="MsoFooter" style='tab-stops:right 451.3pt;page-break-after:auto;width:100%;' cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                            <td style="width:75%;">
+                                <p style="text-align:left;">
+                                    <span lang="EN-US" style='display:inline-block;float:left;font-size:12.0pt;font-family:"Times New Roman",serif;color:#7F7F7F;mso-themecolor:background1;mso-themeshade:128;mso-style-textfill-fill-color:#7F7F7F;mso-style-textfill-fill-themecolor:background1;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:lumm=50000;'>
+                                        {!Project.name}
+                                    </span>
+                                    
+                                </p>
+                                
+                            </td>
+                            <td style="width:25%;">
+                                <p style="text-align:right;">
+                                    <span lang="EN-US" style='mso-fareast-font-family:"Times New Roman",serif;color:#7F7F7F;mso-themecolor:background1;mso-themeshade:128;mso-style-textfill-fill-color:#7F7F7F;mso-style-textfill-fill-themecolor:background1;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:lumm=50000;'>
+                                        Page 
+                                    </span>
+                                    <b>
+                                        <span lang="EN-US" style='mso-field-code: PAGE;mso-fareast-font-family:"Times New Roman",serif;color:#7F7F7F;mso-themecolor:background1;mso-themeshade:128;mso-style-textfill-fill-color:#7F7F7F;mso-style-textfill-fill-themecolor:background1;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:lumm=50000;'>
+                                        </span>
+                                    </b>
+                                    <span lang="EN-US" style='mso-fareast-font-family:"Times New Roman",serif;color:#7F7F7F;mso-themecolor:background1;mso-themeshade:128;mso-style-textfill-fill-color:#7F7F7F;mso-style-textfill-fill-themecolor:background1;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:lumm=50000;'>
+                                      &nbsp;of 
+                                    </span>
+                                    <b>
+                                        <span lang="EN-US" style='mso-field-code: NUMPAGES;font-size:12.0pt;font-family:"Times New Roman",serif;color:#7F7F7F;mso-themecolor:background1;mso-themeshade:128;mso-style-textfill-fill-color:#7F7F7F;mso-style-textfill-fill-themecolor:background1;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:lumm=50000;'>
+                                        </span>
+                                    </b>
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </body>
+    </html>
+</apex:page>

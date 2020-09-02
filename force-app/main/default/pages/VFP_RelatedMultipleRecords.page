@@ -1,0 +1,118 @@
+<apex:page controller="RelatedMultipleRecordsController" sidebar="false" showHeader="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0">
+    <apex:form >
+        <apex:pageMessages ></apex:pageMessages>
+        <table border="0px;" width="100%">
+            <tr>
+                <td width="50%"><div align="center">
+                    <div align="left" style="margin-left:12px; width:100%; font-size:20px">
+                        <strong>Organizations:</strong><br/>
+                    </div>
+                    Search: <apex:inputText id="textFilterAcc" value="{!textFilterAcc}"/> <apex:commandButton id="FindAcc" value="Find" action="{!findAcc}" reRender="panelAcc"/>
+                    <br/><br/>
+                    <apex:panelGrid columns="3" id="panelAcc">
+                        <apex:selectList id="sel1" value="{!leftselectedAcc}" multiselect="true" style="width:250px" size="12">
+                            <apex:selectOptions value="{!unselectedvaluesAcc}" />
+                        </apex:selectList>
+                            <apex:panelGroup >
+                                <strong>&nbsp;&nbsp;&nbsp;&nbsp;Add</strong><br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<apex:image value="{!$Resource.multiselected}">
+                                    <apex:actionSupport event="onclick" action="{!selectclickAcc}" reRender="panelAcc"/>
+                                </apex:image>
+                                <br/><br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<apex:image value="{!$Resource.multiunselected}">
+                                    <apex:actionSupport event="onclick" action="{!unselectclickAcc}" reRender="panelAcc"/>
+                                </apex:image><br/>
+                                <strong>Remove</strong>
+                            </apex:panelGroup>
+                        <apex:selectList id="sel2" value="{!rightselectedAcc}" multiselect="true" style="width:250px" size="12">
+                            <apex:selectOptions value="{!SelectedValuesAcc}" />
+                        </apex:selectList>
+                    </apex:panelGrid>
+                </div></td>
+            
+                <td width="50%"><div align="center">
+                    <div align="left" style="margin-left:12px; width:100%; font-size:20px">
+                        <strong>Contacts:</strong><br/>
+                    </div>
+                    Search: <apex:inputText id="textFilterCon" value="{!textFilterCon}"/> <apex:commandButton id="FindCon" value="Find" action="{!findCon}" reRender="panelCon"/>
+                    <br/><br/>
+                    <apex:panelGrid columns="3" id="panelCon">
+                        <apex:selectList id="sel3" value="{!leftselectedCon}" multiselect="true" style="width:250px" size="12">
+                            <apex:selectOptions value="{!unselectedvaluesCon}" />
+                        </apex:selectList>
+                            <apex:panelGroup >
+                                <strong>&nbsp;&nbsp;&nbsp;&nbsp;Add</strong><br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<apex:image value="{!$Resource.multiselected}">
+                                    <apex:actionSupport event="onclick" action="{!selectclickCon}" reRender="panelCon"/>
+                                </apex:image>
+                                <br/><br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<apex:image value="{!$Resource.multiunselected}">
+                                    <apex:actionSupport event="onclick" action="{!unselectclickCon}" reRender="panelCon"/>
+                                </apex:image><br/>
+                                <strong>Remove</strong>
+                            </apex:panelGroup>
+                        <apex:selectList id="sel4" value="{!rightselectedCon}" multiselect="true" style="width:250px" size="12">
+                            <apex:selectOptions value="{!SelectedValuesCon}" />
+                        </apex:selectList>
+                    </apex:panelGrid>
+                </div></td>
+            </tr>
+            <tr>
+                <td><br/><br/><div align="center">
+                    <div align="left" style="margin-left:12px; width:100%; font-size:20px">
+                        <strong>Activities:</strong><br/>
+                    </div>
+                    Search: <apex:inputText id="textFilterAct" value="{!textFilterAct}"/> <apex:commandButton id="FindAct" value="Find" action="{!findAct}" reRender="panelAct"/>
+                    <br/><br/>
+                    <apex:panelGrid columns="3" id="panelAct">
+                        <apex:selectList id="sel5" value="{!leftselectedAct}" multiselect="true" style="width:250px" size="12">
+                            <apex:selectOptions value="{!unselectedvaluesAct}" />
+                        </apex:selectList>
+                        <apex:panelGroup >
+                            <strong>&nbsp;&nbsp;&nbsp;&nbsp;Add</strong><br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<apex:image value="{!$Resource.multiselected}">
+                            <apex:actionSupport event="onclick" action="{!selectclickAct}" reRender="panelAct"/>
+                            </apex:image>
+                            <br/><br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<apex:image value="{!$Resource.multiunselected}">
+                            <apex:actionSupport event="onclick" action="{!unselectclickAct}" reRender="panelAct"/>
+                            </apex:image><br/>
+                            <strong>Remove</strong>
+                        </apex:panelGroup>
+                        <apex:selectList id="sel6" value="{!rightselectedAct}" multiselect="true" style="width:250px" size="12">
+                            <apex:selectOptions value="{!SelectedValuesAct}" />
+                        </apex:selectList>
+                    </apex:panelGrid>
+                </div></td>
+                
+                <td><br/><br/><div align="center">
+                    <div align="left" style="margin-left:12px; width:100%; font-size:20px">
+                        <strong>Project:</strong><br/>
+                    </div>
+                    Search: <apex:inputText id="textFilterProj" value="{!textFilterProj}"/> <apex:commandButton id="FindProj" value="Find" action="{!findProj}" reRender="panelProj"/>
+                    <br/><br/>
+                    <apex:panelGrid columns="3" id="panelProj">
+                        <apex:selectList id="sel7" value="{!leftselectedProj}" multiselect="true" style="width:250px" size="12">
+                            <apex:selectOptions value="{!unselectedvaluesProj}" />
+                        </apex:selectList>
+                        <apex:panelGroup >
+                            <strong>&nbsp;&nbsp;&nbsp;&nbsp;Add</strong><br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<apex:image value="{!$Resource.multiselected}">
+                            <apex:actionSupport event="onclick" action="{!selectclickProj}" reRender="panelProj"/>
+                            </apex:image>
+                            <br/><br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<apex:image value="{!$Resource.multiunselected}">
+                            <apex:actionSupport event="onclick" action="{!unselectclickProj}" reRender="panelProj"/>
+                            </apex:image><br/>
+                            <strong>Remove</strong>
+                        </apex:panelGroup>
+                        <apex:selectList id="sel8" value="{!rightselectedProj}" multiselect="true" style="width:250px" size="12">
+                            <apex:selectOptions value="{!SelectedValuesProj}" />
+                        </apex:selectList>
+                    </apex:panelGrid>
+                </div></td>
+            </tr>
+            <tr><td colspan="2"><br/><br/><div align="center"><apex:commandButton id="Done" value="Done" action="{!done}"/><!-- <apex:commandButton id="Cancel" value="Cancel" action="{!cancel}"/>--></div></td></tr>
+        </table>
+    </apex:form>
+</apex:page>

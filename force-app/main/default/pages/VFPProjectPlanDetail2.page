@@ -1,0 +1,1522 @@
+<apex:page Controller="ProjectPlanSummary2" sidebar="false" showHeader="false" standardStylesheets="false" contentType="application/msWord#{!Project.name}-ProjectPlanDetail.doc" cache="true">
+    <html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:m="http://schemas.microsoft.com/office/2004/12/omml" xmlns="http://www.w3.org/TR/REC-html40">
+        <head>
+            <title>Project Plan Detail</title>
+            <apex:outputText value="{!PrintView}" escape="false"/>
+            <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />   
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+    {font-family:Wingdings;
+    panose-1:5 0 0 0 0 0 0 0 0 0;
+    mso-font-charset:2;
+    mso-generic-font-family:auto;
+    mso-font-pitch:variable;
+    mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+    {font-family:"Cambria Math";
+    panose-1:0 0 0 0 0 0 0 0 0 0;
+    mso-font-charset:1;
+    mso-generic-font-family:roman;
+    mso-font-format:other;
+    mso-font-pitch:variable;
+    mso-font-signature:0 0 0 0 0 0;}
+@font-face
+    {font-family:Calibri;
+    panose-1:2 15 5 2 2 2 4 3 2 4;
+    mso-font-charset:0;
+    mso-generic-font-family:swiss;
+    mso-font-pitch:variable;
+    mso-font-signature:-536870145 1073786111 1 0 415 0;}
+@font-face
+    {font-family:Tahoma;
+    panose-1:2 11 6 4 3 5 4 4 2 4;
+    mso-font-charset:0;
+    mso-generic-font-family:swiss;
+    mso-font-pitch:variable;
+    mso-font-signature:-520081665 -1073717157 41 0 66047 0;}
+@font-face
+    {font-family:Verdana;
+    panose-1:2 11 6 4 3 5 4 4 2 4;
+    mso-font-alt:Verdana;
+    mso-font-charset:0;
+    mso-generic-font-family:swiss;
+    mso-font-pitch:variable;
+    mso-font-signature:-1593833729 1073750107 16 0 415 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+    {mso-style-unhide:no;
+    mso-style-qformat:yes;
+    mso-style-parent:"";
+    margin:0cm;
+    margin-bottom:.0001pt;
+    mso-pagination:widow-orphan;
+    font-size:12.0pt;
+    font-family:"Times New Roman","serif";
+    mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;
+    mso-fareast-language:EN-US;}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+    {mso-style-noshow:yes;
+    mso-style-priority:99;
+    mso-style-link:"Texto comentario Car";
+    margin:0cm;
+    margin-bottom:.0001pt;
+    mso-pagination:widow-orphan;
+    font-size:10.0pt;
+    font-family:"Times New Roman","serif";
+    mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;
+    mso-fareast-language:EN-US;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+    {mso-style-unhide:no;
+    margin:0cm;
+    margin-bottom:.0001pt;
+    mso-pagination:widow-orphan;
+    tab-stops:center 216.0pt right 432.0pt;
+    font-size:12.0pt;
+    font-family:"Times New Roman","serif";
+    mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;
+    mso-fareast-language:EN-US;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+    {mso-style-priority:99;
+    mso-style-unhide:no;
+    mso-style-link:"Pie de página Car";
+    margin:0cm;
+    margin-bottom:.0001pt;
+    mso-pagination:widow-orphan;
+    tab-stops:center 216.0pt right 432.0pt;
+    font-size:12.0pt;
+    font-family:"Times New Roman","serif";
+    mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;
+    mso-fareast-language:EN-US;}
+span.MsoCommentReference
+    {mso-style-noshow:yes;
+    mso-style-priority:99;
+    mso-ansi-font-size:8.0pt;
+    mso-bidi-font-size:8.0pt;}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+    {mso-style-unhide:no;
+    margin-top:0cm;
+    margin-right:0cm;
+    margin-bottom:0cm;
+    margin-left:54.0pt;
+    margin-bottom:.0001pt;
+    line-height:150%;
+    mso-pagination:widow-orphan;
+    font-size:12.0pt;
+    font-family:"Tahoma","sans-serif";
+    mso-fareast-font-family:"Times New Roman";
+    mso-bidi-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;
+    mso-fareast-language:EN-US;}
+a:link, span.MsoHyperlink
+    {mso-style-priority:99;
+    color:blue;
+    mso-themecolor:hyperlink;
+    text-decoration:underline;
+    text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+    {mso-style-noshow:yes;
+    mso-style-priority:99;
+    color:purple;
+    mso-themecolor:followedhyperlink;
+    text-decoration:underline;
+    text-underline:single;}
+p
+    {mso-style-priority:99;
+    mso-margin-top-alt:auto;
+    margin-right:0cm;
+    mso-margin-bottom-alt:auto;
+    margin-left:0cm;
+    mso-pagination:widow-orphan;
+    font-size:12.0pt;
+    font-family:"Times New Roman","serif";
+    mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;
+    mso-fareast-language:EN-US;}
+p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
+    {mso-style-noshow:yes;
+    mso-style-priority:99;
+    mso-style-parent:"Texto comentario";
+    mso-style-link:"Asunto del comentario Car";
+    mso-style-next:"Texto comentario";
+    margin:0cm;
+    margin-bottom:.0001pt;
+    mso-pagination:widow-orphan;
+    font-size:10.0pt;
+    font-family:"Times New Roman","serif";
+    mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;
+    mso-fareast-language:EN-US;
+    font-weight:bold;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+    {mso-style-noshow:yes;
+    mso-style-priority:99;
+    mso-style-link:"Texto de globo Car";
+    margin:0cm;
+    margin-bottom:.0001pt;
+    mso-pagination:widow-orphan;
+    font-size:8.0pt;
+    font-family:"Tahoma","sans-serif";
+    mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;
+    mso-fareast-language:EN-US;}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+    {mso-style-priority:1;
+    mso-style-unhide:no;
+    mso-style-qformat:yes;
+    mso-style-parent:"";
+    margin:0cm;
+    margin-bottom:.0001pt;
+    mso-pagination:widow-orphan;
+    font-size:11.0pt;
+    font-family:"Calibri","sans-serif";
+    mso-ascii-font-family:Calibri;
+    mso-ascii-theme-font:minor-latin;
+    mso-fareast-font-family:Calibri;
+    mso-fareast-theme-font:minor-latin;
+    mso-hansi-font-family:Calibri;
+    mso-hansi-theme-font:minor-latin;
+    mso-bidi-font-family:"Times New Roman";
+    mso-bidi-theme-font:minor-bidi;
+    mso-ansi-language:EN-US;
+    mso-fareast-language:EN-US;}
+p.MsoRMPane, li.MsoRMPane, div.MsoRMPane
+    {mso-style-noshow:yes;
+    mso-style-priority:99;
+    mso-style-unhide:no;
+    mso-style-parent:"";
+    margin:0cm;
+    margin-bottom:.0001pt;
+    mso-pagination:widow-orphan;
+    font-size:12.0pt;
+    font-family:"Times New Roman","serif";
+    mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;
+    mso-fareast-language:EN-US;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+    {mso-style-priority:34;
+    mso-style-unhide:no;
+    mso-style-qformat:yes;
+    margin-top:0cm;
+    margin-right:0cm;
+    margin-bottom:0cm;
+    margin-left:36.0pt;
+    margin-bottom:.0001pt;
+    mso-pagination:widow-orphan;
+    font-size:12.0pt;
+    font-family:"Times New Roman","serif";
+    mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;
+    mso-fareast-language:EN-US;}
+p.CM61, li.CM61, div.CM61
+    {mso-style-name:CM61;
+    mso-style-unhide:no;
+    mso-style-next:Normal;
+    margin-top:0cm;
+    margin-right:0cm;
+    margin-bottom:17.75pt;
+    margin-left:0cm;
+    mso-pagination:none;
+    mso-layout-grid-align:none;
+    text-autospace:none;
+    font-size:12.0pt;
+    mso-bidi-font-size:10.0pt;
+    font-family:"Arial","sans-serif";
+    mso-fareast-font-family:"Times New Roman";
+    mso-bidi-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;
+    mso-fareast-language:EN-US;}
+span.PiedepginaCar
+    {mso-style-name:"Pie de página Car";
+    mso-style-priority:99;
+    mso-style-unhide:no;
+    mso-style-locked:yes;
+    mso-style-parent:"";
+    mso-style-link:"Pie de página";
+    mso-ansi-font-size:12.0pt;
+    mso-bidi-font-size:12.0pt;}
+span.TextodegloboCar
+    {mso-style-name:"Texto de globo Car";
+    mso-style-noshow:yes;
+    mso-style-priority:99;
+    mso-style-unhide:no;
+    mso-style-locked:yes;
+    mso-style-link:"Texto de globo";
+    mso-ansi-font-size:8.0pt;
+    mso-bidi-font-size:8.0pt;
+    font-family:"Tahoma","sans-serif";
+    mso-ascii-font-family:Tahoma;
+    mso-hansi-font-family:Tahoma;
+    mso-bidi-font-family:Tahoma;}
+span.subhead21
+    {mso-style-name:subhead21;
+    mso-style-unhide:no;
+    mso-ansi-font-size:10.0pt;
+    mso-bidi-font-size:10.0pt;
+    font-family:"Verdana","sans-serif";
+    mso-ascii-font-family:Verdana;
+    mso-hansi-font-family:Verdana;
+    color:#634118;
+    mso-text-animation:none;
+    border:none windowtext 1.0pt;
+    mso-border-alt:none windowtext 0cm;
+    padding:0cm;
+    font-weight:bold;
+    font-style:normal;
+    text-decoration:none;
+    text-underline:none;
+    text-decoration:none;
+    text-line-through:none;
+    vertical-align:baseline;}
+span.hyperlink1
+    {mso-style-name:hyperlink1;
+    mso-style-unhide:no;
+    mso-ansi-font-size:10.0pt;
+    mso-bidi-font-size:10.0pt;
+    font-family:"Verdana","sans-serif";
+    mso-ascii-font-family:Verdana;
+    mso-hansi-font-family:Verdana;
+    color:#B56900;
+    border:none windowtext 1.0pt;
+    mso-border-alt:none windowtext 0cm;
+    padding:0cm;
+    font-weight:normal;
+    font-style:normal;
+    text-decoration:underline;
+    text-underline:single;
+    vertical-align:baseline;}
+span.TextocomentarioCar
+    {mso-style-name:"Texto comentario Car";
+    mso-style-noshow:yes;
+    mso-style-priority:99;
+    mso-style-unhide:no;
+    mso-style-locked:yes;
+    mso-style-link:"Texto comentario";}
+span.AsuntodelcomentarioCar
+    {mso-style-name:"Asunto del comentario Car";
+    mso-style-noshow:yes;
+    mso-style-priority:99;
+    mso-style-unhide:no;
+    mso-style-locked:yes;
+    mso-style-parent:"Texto comentario Car";
+    mso-style-link:"Asunto del comentario";
+    font-weight:bold;}
+.MsoChpDefault
+    {mso-style-type:export-only;
+    mso-default-props:yes;
+    font-size:10.0pt;
+    mso-ansi-font-size:10.0pt;
+    mso-bidi-font-size:10.0pt;
+    mso-ansi-language:EN-US;
+    mso-fareast-language:EN-US;}
+ /* Page Definitions */
+ @page
+    {mso-footnote-separator:url("test_archivos/header.htm") fs;
+    mso-footnote-continuation-separator:url("test_archivos/header.htm") fcs;
+    mso-endnote-separator:url("test_archivos/header.htm") es;
+    mso-endnote-continuation-separator:url("test_archivos/header.htm") ecs;}
+@page Section1
+    {size:612.0pt 792.0pt;
+    margin:36.0pt 72.0pt 40.5pt 72.0pt;
+    mso-header-margin:9.0pt;
+    mso-footer-margin:15.0pt;
+    mso-title-page:yes;
+    mso-footer:url("test_archivos/header.htm") f1;
+    mso-first-header:url("test_archivos/header.htm") fh1;
+    mso-paper-source:0;}
+div.Section1
+    {page:Section1;}
+ /* List Definitions */
+ @list l0
+    {mso-list-id:5837835;
+    mso-list-template-ids:1507099872;}
+@list l0:level1
+    {mso-level-number-format:bullet;
+    mso-level-text:\F0B7;
+    mso-level-tab-stop:36.0pt;
+    mso-level-number-position:left;
+    text-indent:-18.0pt;
+    mso-ansi-font-size:10.0pt;
+    font-family:Symbol;}
+@list l1
+    {mso-list-id:223296974;
+    mso-list-template-ids:-1772218246;}
+@list l2
+    {mso-list-id:414909182;
+    mso-list-template-ids:213934884;}
+@list l2:level1
+    {mso-level-number-format:bullet;
+    mso-level-text:\F0B7;
+    mso-level-tab-stop:36.0pt;
+    mso-level-number-position:left;
+    text-indent:-18.0pt;
+    mso-ansi-font-size:10.0pt;
+    font-family:Symbol;}
+@list l3
+    {mso-list-id:607977697;
+    mso-list-template-ids:-1152881424;}
+@list l4
+    {mso-list-id:1479226940;
+    mso-list-template-ids:-1798902430;}
+@list l4:level1
+    {mso-level-number-format:bullet;
+    mso-level-text:\F0B7;
+    mso-level-tab-stop:36.0pt;
+    mso-level-number-position:left;
+    text-indent:-18.0pt;
+    mso-ansi-font-size:10.0pt;
+    font-family:Symbol;}
+@list l5
+    {mso-list-id:1534263635;
+    mso-list-template-ids:-623456766;}
+@list l5:level1
+    {mso-level-number-format:bullet;
+    mso-level-text:\F0B7;
+    mso-level-tab-stop:36.0pt;
+    mso-level-number-position:left;
+    text-indent:-18.0pt;
+    mso-ansi-font-size:10.0pt;
+    font-family:Symbol;}
+@list l6
+    {mso-list-id:1583559823;
+    mso-list-template-ids:496168452;}
+@list l6:level1
+    {mso-level-number-format:bullet;
+    mso-level-text:\F0B7;
+    mso-level-tab-stop:36.0pt;
+    mso-level-number-position:left;
+    text-indent:-18.0pt;
+    mso-ansi-font-size:10.0pt;
+    font-family:Symbol;}
+@list l7
+    {mso-list-id:1785422506;
+    mso-list-template-ids:-1427487662;}
+@list l7:level1
+    {mso-level-number-format:bullet;
+    mso-level-text:\F0B7;
+    mso-level-tab-stop:36.0pt;
+    mso-level-number-position:left;
+    text-indent:-18.0pt;
+    mso-ansi-font-size:10.0pt;
+    font-family:Symbol;}
+@list l8
+    {mso-list-id:1882084974;
+    mso-list-template-ids:-351874204;}
+@list l9
+    {mso-list-id:1937514043;
+    mso-list-template-ids:-261590530;}
+@list l9:level1
+    {mso-level-number-format:bullet;
+    mso-level-text:\F0B7;
+    mso-level-tab-stop:36.0pt;
+    mso-level-number-position:left;
+    text-indent:-18.0pt;
+    mso-ansi-font-size:10.0pt;
+    font-family:Symbol;}
+@list l10
+    {mso-list-id:1994993073;
+    mso-list-template-ids:899728564;}
+@list l10:level1
+    {mso-level-number-format:bullet;
+    mso-level-text:\F0B7;
+    mso-level-tab-stop:36.0pt;
+    mso-level-number-position:left;
+    text-indent:-18.0pt;
+    mso-ansi-font-size:10.0pt;
+    font-family:Symbol;}
+@list l11
+    {mso-list-id:2006474088;
+    mso-list-template-ids:1425857814;}
+@list l11:level1
+    {mso-level-number-format:bullet;
+    mso-level-text:\F0B7;
+    mso-level-tab-stop:36.0pt;
+    mso-level-number-position:left;
+    text-indent:-18.0pt;
+    mso-ansi-font-size:10.0pt;
+    font-family:Symbol;}
+@list l12
+    {mso-list-id:2038503834;
+    mso-list-template-ids:-1701139254;}
+@list l12:level1
+    {mso-level-number-format:bullet;
+    mso-level-text:\F0B7;
+    mso-level-tab-stop:36.0pt;
+    mso-level-number-position:left;
+    text-indent:-18.0pt;
+    mso-ansi-font-size:10.0pt;
+    font-family:Symbol;}
+ol
+    {margin-bottom:0cm;}
+ul
+    {margin-bottom:0cm;}
+-->
+@page{
+    }
+    @page WordSection1{
+    size:21cm 29.7cm; 
+    margin:1.0in 1.0in 1.0in 1.0in;
+    mso-header-margin:35.3pt;
+    mso-header:h1;
+    mso-footer:f1; 
+    mso-footer-margin:35.3pt;
+    mso-paper-source:0;
+    }
+    div.WordSection1{
+    page:WordSection1;
+    }
+    ol{
+    margin-bottom:0in;
+    }
+    ul{
+    margin-bottom:0in;
+    }
+    span.GramE span{
+    font-family:"Times New Roman",serif !important;
+    font-size:12.0pt !important;
+    }
+    tr{ 
+    page-break-inside:avoid !important; 
+    
+    }
+    td{ 
+    page-break-inside:avoid !important; 
+    
+    }
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+    {mso-style-name:"Tabla normal";
+    mso-tstyle-rowband-size:0;
+    mso-tstyle-colband-size:0;
+    mso-style-noshow:yes;
+    mso-style-priority:99;
+    mso-style-qformat:yes;
+    mso-style-parent:"";
+    mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+    mso-para-margin:0cm;
+    mso-para-margin-bottom:.0001pt;
+    mso-pagination:widow-orphan;
+    font-size:10.0pt;
+    font-family:"Times New Roman","serif";
+    mso-ansi-language:EN-US;
+    mso-fareast-language:EN-US;}
+table.MsoTableGrid
+    {mso-style-name:"Tabla con cuadrícula";
+    mso-tstyle-rowband-size:0;
+    mso-tstyle-colband-size:0;
+    mso-style-priority:59;
+    mso-style-unhide:no;
+    border:solid windowtext 1.0pt;
+    mso-border-alt:solid windowtext .5pt;
+    mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+    mso-border-insideh:.5pt solid windowtext;
+    mso-border-insidev:.5pt solid windowtext;
+    mso-para-margin:0cm;
+    mso-para-margin-bottom:.0001pt;
+    mso-pagination:widow-orphan;
+    font-size:11.0pt;
+    font-family:"Calibri","sans-serif";
+    mso-ascii-font-family:Calibri;
+    mso-ascii-theme-font:minor-latin;
+    mso-fareast-font-family:Calibri;
+    mso-fareast-theme-font:minor-latin;
+    mso-hansi-font-family:Calibri;
+    mso-hansi-theme-font:minor-latin;
+    mso-bidi-font-family:"Times New Roman";
+    mso-bidi-theme-font:minor-bidi;
+    mso-ansi-language:EN-US;
+    mso-fareast-language:EN-US;}
+table.TableGrid1
+    {mso-style-name:"Table Grid1";
+    mso-tstyle-rowband-size:0;
+    mso-tstyle-colband-size:0;
+    mso-style-priority:59;
+    mso-style-unhide:no;
+    border:solid windowtext 1.0pt;
+    mso-border-alt:solid windowtext .5pt;
+    mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+    mso-border-insideh:.5pt solid windowtext;
+    mso-border-insidev:.5pt solid windowtext;
+    mso-para-margin:0cm;
+    mso-para-margin-bottom:.0001pt;
+    mso-pagination:widow-orphan;
+    font-size:11.0pt;
+    font-family:"Calibri","sans-serif";
+    mso-ascii-font-family:Calibri;
+    mso-ascii-theme-font:minor-latin;
+    mso-fareast-font-family:Calibri;
+    mso-fareast-theme-font:minor-latin;
+    mso-hansi-font-family:Calibri;
+    mso-hansi-theme-font:minor-latin;
+    mso-bidi-font-family:"Times New Roman";
+    mso-bidi-theme-font:minor-bidi;
+    mso-ansi-language:EN-US;
+    mso-fareast-language:EN-US;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="17410"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body style='tab-interval:36.0pt'>
+
+<div class="Section1">
+    
+        <p class="MsoNormal" align="center" style='text-align:center'>
+            <b style='mso-bidi-font-weight:normal;font-family:"Calibri","sans-serif";font-size:14.0pt;'><span lang="EN-US">{!Project.name}</span></b>
+        </p>
+        <p class="MsoNormal" align="center" style='text-align:center'>
+            <span lang="EN-US" style='mso-bidi-font-weight:normal;font-family:"Calibri","sans-serif";font-size:14.0pt;'>Detailed Plan</span>
+        </p>
+        <p class="MsoNormal" style="page-break-after:avoid;text-align:center;">
+            <!--<b style='mso-bidi-font-weight:normal'>
+                <span lang="EN-US" style="line-height:107%;">LPA PROJECT MANAGER: </span>
+            </b>-->
+            <span lang="EN-US" style='font-family:"Calibri","sans-serif";font-size:14.0pt;'>{!Project.Owner.Name}, {!Project.Owner.Title}</span> <br/>
+            <!--<span lang="EN-US">Last Updated:&nbsp;
+                <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                    <apex:param value="{!Project.Lastmodifieddate}" />
+                </apex:outputText>
+            </span>-->
+        </p>
+
+        <table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0" style='background:white;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+         <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;page-break-inside:avoid;height:18.0pt'>
+          <td width="638" style='width:478.8pt;border:1px solid black;padding:0cm 5.4pt 0cm 5.4pt;height:18.0pt'>
+          <p class="MsoNormal" style='mso-layout-grid-align:none;text-autospace:none'><b style='mso-bidi-font-weight:normal'>
+              <span lang="EN-US" style='font-family:"Calibri","sans-serif";font-size:14.0pt;mso-fareast-theme-font:minor-latin;color:black;letter-spacing:2.0pt'>PROJECT SUMMARY<p></p></span></b></p>
+          </td>
+         </tr>
+        </table>
+        
+        <p class="MsoNormal" style='page-break-after:avoid'>
+            <span lang="EN-US" style='font-family:"Calibri","sans-serif";font-size:11.0pt;'>
+                {!Project.primary_project_summary__c}               
+            </span>
+        </p>
+
+        <p class="MsoNormal" style='page-break-after:avoid'>
+            <span lang="EN-US" style='font-family:"Calibri","sans-serif";font-size:11.0pt;'>
+            {!Project.project_summary__c}
+            </span>
+        </p>
+        
+        <table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0" style='background:white;border-collapse:collapse; border:none;mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:1184; mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+         <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;page-break-inside:avoid;height:18.0pt'>
+          <td width="638" style='width:478.8pt;border:1px solid black;padding:0cm 5.4pt 0cm 5.4pt;height:18.0pt'>
+          <p class="MsoNormal" style='mso-layout-grid-align:none;text-autospace:none'><b style='mso-bidi-font-weight:normal'>
+              <span lang="EN-US" style='font-family:"Calibri","sans-serif";color:black;font-size:14.0pt;mso-fareast-theme-font:minor-latin;letter-spacing:2.0pt'>EXECUTIVE SUMMARY<p></p></span></b></p>
+          </td>
+         </tr>
+        </table>
+
+        <p  class="MsoNormal" style='page-break-after:avoid'>
+            <span lang="EN-US" style='font-family:"Calibri","sans-serif";font-size:11.0pt;'>
+                <apex:outputText value="{!Project.Executive_Summary__c}" escape="false" />
+            </span>
+        </p><br/>
+
+        <table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0" style='background:white;border-collapse:collapse; border:none;mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:1184; mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+         <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes; height:18.0pt'>
+          <td width="638" style='width:478.8pt;border:1px solid black;padding:0cm 5.4pt 0cm 5.4pt;height:18.0pt'>
+          <p class="MsoNormal" style='page-break-after:avoid'><b style='mso-bidi-font-weight:normal'>
+              <span lang="EN-US" style='font-family:"Calibri","sans-serif";color:black;font-size:14.0pt;mso-fareast-theme-font:minor-latin;letter-spacing:2.0pt'>
+                  PROJECT BACKGROUND<p></p></span></b></p>
+          </td>
+         </tr>
+        </table>
+        
+        <p class="MsoNormal" style='page-break-after:avoid'>
+            <span lang="EN-US" style='font-family:"Calibri","sans-serif";font-size:11.0pt;'>
+                <apex:outputText value="{!Project.Background_Description__c}" escape="false" />
+            </span>
+        </p><br/>
+
+        <table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0" style='background:white;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+         <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;height:18.0pt'>
+          <td width="638" style="width:478.8pt;border:1px solid black;padding:0cm 5.4pt 0cm 5.4pt;height:18.0pt">
+          <p class="MsoNormal" style='page-break-after:avoid'><b style='mso-bidi-font-weight:normal'>
+              <span lang="EN-US" style='font-family:"Calibri","sans-serif";color:black;font-size:14.0pt;mso-fareast-theme-font:minor-latin;letter-spacing:2.0pt'>
+              CURRENT SITUATION<p></p></span></b></p>
+          </td>
+         </tr>
+        </table>
+
+        <p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;line-height:106%'>
+            <span lang="EN-US" style='font-family:"Calibri","sans-serif";font-size:11.0pt;line-height:106%'>
+                <apex:outputText value="{!Project.Current_Situation__c}" escape="false" />
+                <!--<apex:outputPanel rendered="{IF(Project.Current_Situation__c==null,true,false}">&nbsp;<br/><br/></apex:outputPanel>-->
+            </span>
+        </p><br/>
+    
+    <table style="width:100%;">
+        <tr style="page-break-before:avoid"><td>
+        <table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0" style='background:white;border-collapse:collapse;border:none;mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:none;mso-border-insidev:none'>
+         <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;height:18.0pt'>
+          <td width="638" style='width:478.8pt;border:1px solid black;padding:0cm 5.4pt 0cm 5.4pt;height:18.0pt'>
+          <p class="MsoNormal" style='mso-pagination:widow-orphan lines-together;
+          page-break-after:avoid'><b style='mso-bidi-font-weight:normal'><span
+          lang="EN-US" style='font-family:"Calibri","sans-serif";color:black;font-size:14.0pt;
+          mso-fareast-theme-font:minor-latin;letter-spacing:2.0pt'>OPPORTUNITIES AND CHALLENGES<p></p></span></b></p>
+          </td>
+         </tr>
+        </table>
+
+        <p class="MsoNormal" style='page-break-after:avoid'>
+            <span lang="EN-US" style='font-family:"Calibri","sans-serif";font-size:11.0pt;'>
+                <apex:outputText value="{!Project.Internal_External_Challenges__c}" escape="false" />
+                <!--<apex:outputPanel rendered="{IF(Project.Internal_External_Challenges__c==null,true,false}">&nbsp;<br/><br/></apex:outputPanel>-->
+            </span>
+        </p>
+    </td></tr></table>
+        <br/>
+        
+    <table style="width:100%;">
+        <tr style="page-break-before:avoid"><td>
+        <table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0" style='width:100%;background:white;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+            <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;height:18.0pt'>
+                <td style='border:1px solid black;padding:0cm 5.4pt 0cm 5.4pt;height:18.0pt'>
+                    <p class="MsoNormal" style='page-break-after:avoid'><b style='mso-bidi-font-weight:normal'>
+                        <span lang="EN-US" style='font-family:"Calibri","sans-serif";color:black;font-size:14.0pt;mso-fareast-theme-font:minor-latin;letter-spacing:2.0pt'>GOALS<p></p></span></b></p>
+                </td>
+            </tr>
+        </table><br/>
+
+        <table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0" style='margin-left:5.4pt;width:98.9%;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+            <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+                <td valign="top" style='width:81.0pt;border:solid windowtext 1.0pt;border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+                    <p class="MsoNormal" align="center" style='text-align:left'>
+                        <b style='mso-bidi-font-weight:normal'>
+                            <span lang="EN-US" style='font-family:"Calibri","sans-serif";font-size:11.0pt'>Goal Name<p></p></span>
+                        </b>
+                    </p>
+                </td>
+                <td valign="top" style='width:81.0pt;border:solid windowtext 1.0pt;border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+                    <p class="MsoNormal" align="center" style='text-align:left'>
+                        <b style='mso-bidi-font-weight:normal'>
+                            <span lang="EN-US" style='font-family:"Calibri","sans-serif";font-size:11.0pt'>Short Description<p></p></span>
+                        </b>
+                    </p>
+                </td>
+            </tr>
+            <apex:repeat value="{!listGoals}" var="goal">
+                 <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+                     <td valign="top" style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+                        <p class="MsoNormal" style='tab-stops:62.5pt'>
+                            <span lang="EN-US" style='font-family:"Calibri","sans-serif";font-size:11.0pt;mso-fareast-theme-font:minor-latin'>
+                                {!goal.Name}
+                            </span>
+                        </p>
+                    </td>
+                    <td valign="top" style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+                        <p class="MsoNormal" style='tab-stops:62.5pt'>
+                            <span lang="EN-US" style='font-family:"Calibri","sans-serif";font-size:11.0pt;mso-fareast-theme-font:minor-latin'>
+                                {!goal.Short_Description__c}
+                            </span>
+                        </p>
+                    </td>
+                 </tr>
+            </apex:repeat>
+        </table>
+    </td></tr></table>
+    <br/>
+
+    <table style="width:100%;">
+        <tr style="page-break-before:avoid"><td>
+        <table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0" style='width:100%;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+            <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;height:18.0pt'>
+                <td style='border:1px solid black;background:white;padding:0cm 5.4pt 0cm 5.4pt;height:18.0pt'>
+                  <p class="MsoNormal" style='page-break-after:avoid'><b style='mso-bidi-font-weight:normal'>
+                      <span lang="EN-US" style='font-family:"Calibri","sans-serif";color:black;font-size:14.0pt;mso-fareast-theme-font:minor-latin;letter-spacing:2.0pt'>
+                          OBJECTIVES<p></p>
+                      </span>
+                      </b>
+                   </p>
+                  </td>
+             </tr>
+        </table><br/>
+
+        <table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0" style='margin-left:5.4pt;width:98.9%;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+            <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+                <td valign="top" style='width:81.0pt;border:solid windowtext 1.0pt;border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+                    <p class="MsoNormal" align="center" style='text-align:left'>
+                        <b style='mso-bidi-font-weight:normal'>
+                            <span lang="EN-US" style='font-family:"Calibri","sans-serif";font-size:11.0pt'>Objetive Name<p></p></span>
+                        </b>
+                    </p>
+                </td>
+                <td valign="top" style='width:81.0pt;border:solid windowtext 1.0pt;border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+                    <p class="MsoNormal" align="center" style='text-align:left'>
+                        <b style='mso-bidi-font-weight:normal'>
+                            <span lang="EN-US" style='font-family:"Calibri","sans-serif";font-size:11.0pt'>Short Description<p></p></span>
+                        </b>
+                    </p>
+                </td>
+            </tr>
+            <apex:repeat value="{!listObjetives}" var="obj">
+                 <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+                     <td valign="top" style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+                        <p class="MsoNormal" style='tab-stops:62.5pt'>
+                            <span lang="EN-US" style='font-family:"Calibri","sans-serif";font-size:11.0pt;mso-fareast-theme-font:minor-latin'>
+                                {!obj.Name}
+                            </span>
+                        </p>
+                  </td>
+                    <td valign="top" style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+                        <p class="MsoNormal" style='tab-stops:62.5pt'>
+                            <span lang="EN-US" style='font-family:"Calibri","sans-serif";font-size:11.0pt;mso-fareast-theme-font:minor-latin'>
+                                {!obj.Short_Description__c}
+                            </span>
+                        </p>
+                  </td>
+                 </tr>
+            </apex:repeat>
+        </table>
+    </td></tr></table>
+    <br/>
+
+    <table style="width:100%;">
+        <tr style="page-break-before:avoid"><td>
+        <table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0"
+         style='border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+         mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+         <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+          height:18.0pt'>
+          <td width="638" style='width:478.8pt;border:1px solid black;background:white;
+          padding:0cm 5.4pt 0cm 5.4pt;height:18.0pt'>
+          <p class="MsoNormal" style='page-break-after:avoid'><b style='mso-bidi-font-weight:
+          normal'><span lang="EN-US" style='font-family:"Calibri","sans-serif";color:black;font-size:14.0pt;mso-fareast-theme-font:minor-latin;letter-spacing:2.0pt'>STRATEGIES<p></p></span></b></p>
+          </td>
+         </tr>
+        </table><br/>
+        <p class="MsoNormal" style='page-break-after:avoid'>
+            <span lang="EN-US" style='font-family:"Calibri","sans-serif";font-size:11.0pt;'>
+                <apex:outputText value="{!Project.Strategies__c}" escape="false" style="width: 700px; height: 300"/>
+            </span>
+        </p>  
+         
+            
+        <!--<p class="MsoNormal" style='page-break-after:avoid'>
+            <span lang="EN-US" style='font-family:"Calibri","sans-serif";font-size:11.0pt;'>
+                <apex:outputText value="{!Project.Strategies__c}" escape="false" />
+            </span>
+        </p>-->
+    </td></tr></table>
+    
+    <table style="width:100%;">
+        <tr style="page-break-before:avoid"><td>
+        <table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0"
+         style='border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+         mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+         <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+          height:18.0pt'>
+          <td width="623" style='width:467.5pt;border:1px solid black;background:white;
+          padding:0cm 5.4pt 0cm 5.4pt;height:18.0pt'>
+          <p class="MsoNormal" style='page-break-after:avoid'><b style='mso-bidi-font-weight:
+          normal'><span lang="EN-US" style='font-family:"Calibri","sans-serif";color:black;font-size:14.0pt;mso-fareast-theme-font:minor-latin;letter-spacing:2.0pt'>MILESTONES<p></p></span></b></p>
+          </td>
+         </tr>
+        </table><br/>
+        
+        <table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" style='margin-left:5.4pt;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:.5pt solid windowtext;mso-border-insidev: .5pt solid windowtext'>
+            <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+                <td width="402" valign="top" style='width:301.5pt;border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;padding:1.45pt 5.4pt 1.45pt 5.4pt'>
+                    <p class="MsoNormal" style='tab-stops:123.0pt center 156.35pt'><b style='mso-bidi-font-weight:normal'><span lang="EN-US" style='font-family:"Calibri","sans-serif";font-size:11.0pt'>Description<p></p></span></b></p>
+                </td>
+                <td width="108" valign="top" style='width:81.0pt;border:solid windowtext 1.0pt;border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+                    <p class="MsoNormal" align="center" style='text-align:center'>
+                        <b style='mso-bidi-font-weight:normal'>
+                        <span lang="EN-US" style='font-family:"Calibri","sans-serif";font-size:11.0pt'>LPA/Other<p></p></span>
+                        </b></p>
+                </td>
+                <td width="114" valign="top" style='width:85.5pt;border:solid windowtext 1.0pt;border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:1.45pt 5.4pt 1.45pt 5.4pt'>
+                    <p class="MsoNormal" align="center" style='text-align:center'><b style='mso-bidi-font-weight:normal'>
+                        <span lang="EN-US" style='font-family:"Calibri","sans-serif";font-size:11.0pt'>Milestone Status<p></p></span></b>
+                    </p>
+                </td>
+            </tr>
+            <apex:repeat value="{!listMilestones}" var="mile">
+                <tr style='mso-yfti-irow:1'>
+                    <td width="402" valign="top" style='width:301.5pt;border:solid windowtext 1.0pt;border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:1.45pt 5.75pt 1.45pt 5.75pt'>
+                        <p class="MsoNormal">
+                            <span lang="EN-US" style='font-family:"Calibri","sans-serif";font-size:11.0pt;color:black;background:white'>{!mile.Milestone_Description__c}</span>
+                            <span lang="EN-US" style='font-size:10.0pt'><p></p></span>
+                        </p>
+                    </td>
+                    <td width="108" valign="top" style='width:81.0pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+                        <p class="MsoNormal" align="center" style='text-align:center'>
+                            <span lang="EN-US" style='font-family:"Calibri","sans-serif";font-size:11.0pt'>{!mile.Type_of_Milestone__c}<p></p></span>
+                        </p>
+                    </td>
+                    <td width="114" valign="top" style='width:85.5pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:1.45pt 5.75pt 1.45pt 5.75pt'>
+                        <p class="MsoNormal" align="center" style='text-align:center'>
+                            <span lang="EN-US" style='font-family:"Calibri","sans-serif";font-size:11.0pt'>
+                                {!mile.Milestone_Status__c}
+                                <!--<apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                    <apex:param value="{!mile.Est_Completion_Date__c}" />
+                                </apex:outputText>-->
+                                <p></p>
+                            </span>
+                        </p>
+                    </td>
+                </tr>
+            </apex:repeat>
+        </table>
+    </td></tr></table>
+    <br/>
+
+    <table style="width:100%;">
+        <tr style="page-break-before:avoid"><td>  
+        <table class="TableGrid1" border="1" cellspacing="0" cellpadding="0" style='background:white;border-collapse:collapse;
+         border:none;mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:1184;
+         mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+         <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+          page-break-inside:avoid;height:18.0pt'>
+          <td width="638" style='width:478.8pt;border:1px solid black;padding:0cm 5.4pt 0cm 5.4pt;height:18.0pt'>
+          <p class="MsoNormal" style='page-break-after:avoid'><b style='mso-bidi-font-weight:
+          normal'><span lang="EN-US" style='font-family:"Calibri","sans-serif";color:black;font-size:14.0pt;mso-fareast-theme-font:minor-latin;letter-spacing:2.0pt'>STAKEHOLDER
+          INTEREST MATRIX<p></p></span></b></p>
+          </td>
+         </tr>
+        </table><br/>
+
+        <table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" style='margin-left:5.4pt;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+         <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;page-break-inside:avoid'>
+          <td width="318" valign="top" style='width:238.25pt;border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+          <p class="MsoNormal" style='font-family:"Calibri","sans-serif";line-height:105%'><b><span lang="EN-US" style='font-size:11.0pt;'>Partner </span></b><strong><span lang="EN-US" style='font-weight:normal;mso-bidi-font-weight:bold'><p></p></span></strong></p>
+          <ul type="disc">
+            <apex:repeat value="{!listStakeholder1}" var="lst1">
+                <li class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;line-height:105%;mso-list:l0 level1 lfo6;tab-stops:list 36.0pt'>
+                    <span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";mso-bidi-font-weight:bold'>{!lst1}</span>
+                </li>
+            </apex:repeat>
+          </ul>
+          </td>
+          <td width="306" valign="top" style='width:229.5pt;border:solid windowtext 1.0pt;
+          border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+          solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+          <p class="MsoNormal" style='font-size:11.0pt;font-family:"Calibri","sans-serif";line-height:105%'><b><span lang="EN-US">Engage </span></b><strong><span
+          lang="EN-US" style='font-weight:normal;mso-bidi-font-weight:bold'><p></p></span></strong></p>
+          <ul type="disc">
+              <apex:repeat value="{!listStakeholder2}" var="lst2">
+                <li class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;line-height:105%;mso-list:l12 level1 lfo7;tab-stops:list 36.0pt'>
+                    <span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";mso-bidi-font-weight:bold'>{!lst2}</span>
+                </li>
+                </apex:repeat>
+          </ul>
+          </td>
+         </tr>
+         <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes;page-break-inside:avoid'>
+          <td width="318" valign="top" style='width:238.25pt;border:solid windowtext 1.0pt;
+          border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+          padding:0cm 5.4pt 0cm 5.4pt'>
+          <p class="MsoNormal" style='font-size:11.0pt;font-family:"Calibri","sans-serif";line-height:105%'><b><span lang="EN-US">Empower </span></b><span
+          lang="EN-US" style='mso-bidi-font-weight:bold'><p></p></span></p>
+          <ul type="disc">
+              <apex:repeat value="{!listStakeholder3}" var="lst3">
+                <li class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;line-height:105%;mso-list:l2 level1 lfo8;tab-stops:list 36.0pt'>
+                    <span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";mso-bidi-font-weight:bold'>{!lst3}<p></p></span>
+                </li>
+                </apex:repeat>
+          </ul>
+          </td>
+          <td width="306" valign="top" style='width:229.5pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+          <p class="MsoNormal" style='font-size:11.0pt;font-family:"Calibri","sans-serif";line-height:105%'><b><span lang="EN-US">Monitor </span></b><strong><span lang="EN-US" style='font-weight:normal;mso-bidi-font-weight:bold'><p></p></span></strong></p>
+          <ul type="disc">
+              <apex:repeat value="{!listStakeholder4}" var="lst4">
+                <li class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;line-height:105%;mso-list:l11 level1 lfo9;tab-stops:list 36.0pt'>
+                    <span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";mso-bidi-font-weight:bold'>{!lst4}</span>
+                </li>
+                </apex:repeat>
+          </ul>
+          </td>
+         </tr>
+        </table>
+    </td></tr></table>        
+    <br/>
+
+    <table style="width:100%;">
+        <tr style="page-break-before:avoid"><td>
+        <table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0"
+         style='background:white;border-collapse:collapse;
+         border:none;mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:1184;
+         mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+         <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;
+          page-break-inside:avoid;height:18.0pt'>
+          <td width="623" style='width:467.5pt;border:1px solid black;padding:0cm 5.4pt 0cm 5.4pt;height:18.0pt'>
+          <p class="MsoNormal" style='mso-layout-grid-align:none;text-autospace:none'><b
+          style='mso-bidi-font-weight:normal'><span lang="EN-US" style='font-family:"Calibri","sans-serif";color:black;font-size:14.0pt;mso-fareast-theme-font:minor-latin;
+          letter-spacing:2.0pt'>STAKEHOLDER ENVIRONMENT<p></p></span></b></p>
+          </td>
+         </tr>
+        </table><br/>
+
+        <table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" style='margin-left:5.4pt;width:98.9%;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+            <thead>
+                <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;page-break-inside:avoid'>
+                    <td width="50%" colspan="2" style='padding:0cm 5.4pt 0cm 5.4pt'>
+                        <p class="MsoNormal"><b><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>Political<p></p></span></b></p>
+                    </td>
+                    <td width="50%" colspan="2" style='padding:0cm 5.4pt 0cm 5.4pt'>
+                        <p class="MsoNormal"><b><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>Community<p></p></span></b></p>
+                    </td>
+                </tr>
+            </thead>
+            <tr style='mso-yfti-irow:1;page-break-inside:avoid;mso-row-margin-right:.5pt'>
+                <td width="45%" style='padding:0cm 5.4pt 0cm 5.4pt'>
+                    <p class="MsoNormal"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>City Council(s)</span></p>
+                </td>
+                <td width="5%" valign="top" style='padding:0cm 5.4pt 0cm 5.4pt;vertical-align: middle;'>
+                    <p class="MsoNormal">
+                        <span style='font-size:11.0pt;font-family:"Calibri","sans-serif";mso-ansi-language:ES-PE;mso-fareast-language:ES-PE;mso-no-proof:yes'>
+                            <apex:image url="{!if(Project.City_Council__c=='Red', RedCircleUrl, if(Project.City_Council__c=='Green',GreenCircleUrl,if(Project.City_Council__c=='Yellow',YellowCircleUrl,'')))}" width="30" height="30" rendered="{!if(OR(ISNULL(Project.City_Council__c),Project.City_Council__c=='N/A'),false,true)}"/>
+                            <apex:outputText rendered="{!IF(Project.City_Council__c=='N/A',true,false)}" value="{!Project.City_Council__c}" />
+                        </span></p>
+                </td>
+                <td width="45%" style='padding:0cm 5.4pt 0cm 5.4pt'>
+                    <p class="MsoNormal"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>Sensitive Land Users</span></p>
+                </td>
+                <td width="5%" style='padding:0cm 5.4pt 0cm 5.4pt;vertical-align: middle;'>
+                    <p class="MsoNormal"><span style='font-size:11.0pt;font-family:"Calibri","sans-serif";mso-ansi-language:ES-PE;mso-fareast-language:ES-PE;mso-no-proof:yes'>
+                        <apex:image url="{!if(Project.Sensitive_Land_Users__c=='Red', RedCircleUrl, if(Project.Sensitive_Land_Users__c=='Green',GreenCircleUrl,if(Project.Sensitive_Land_Users__c=='Yellow',YellowCircleUrl,'')))}" width="30" height="30" rendered="{!if(OR(ISNULL(Project.Sensitive_Land_Users__c),Project.Sensitive_Land_Users__c=='N/A'),false,true)}"/>
+                        <apex:outputText rendered="{!IF(Project.Sensitive_Land_Users__c=='N/A',true,false)}" value="{!Project.Sensitive_Land_Users__c}" />
+                        </span></p>
+                </td>
+            </tr>
+            <tr style='mso-yfti-irow:2;page-break-inside:avoid;mso-row-margin-right:.5pt'>
+                <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+                    <p class="MsoNormal"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>County Board of Supervisors</span></p>
+                </td>
+                <td valign="top" style='padding:0cm 5.4pt 0cm 5.4pt;vertical-align: middle;'>
+                    <p class="MsoNormal"><span style='font-size:11.0pt;font-family:"Calibri","sans-serif";mso-ansi-language:ES-PE;mso-fareast-language:ES-PE;mso-no-proof:yes'>
+                        <apex:image url="{!if(Project.County_Board_Of_Supervisors__c=='Red', RedCircleUrl, if(Project.County_Board_Of_Supervisors__c=='Green',GreenCircleUrl,if(Project.County_Board_Of_Supervisors__c=='Yellow',YellowCircleUrl,'')))}" width="30" height="30" rendered="{!if(OR(ISNULL(Project.County_Board_Of_Supervisors__c),Project.County_Board_Of_Supervisors__c=='N/A'),false,true)}"/>              
+                        <apex:outputText rendered="{!IF(Project.County_Board_Of_Supervisors__c=='N/A',true,false)}" value="{!Project.County_Board_Of_Supervisors__c}" />
+                        </span></p>
+                </td>
+                <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+                    <p class="MsoNormal"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>Sensitive Property Owners</span></p>
+                </td>
+                <td style='padding:0cm 5.4pt 0cm 5.4pt;vertical-align: middle;'>
+                    <p class="MsoNormal"><span style='font-size:11.0pt;font-family:"Calibri","sans-serif";mso-ansi-language:ES-PE;mso-fareast-language:ES-PE;mso-no-proof:yes'>
+                        <apex:image url="{!if(Project.Sensitive_Property_Owners__c=='Red', RedCircleUrl, if(Project.Sensitive_Property_Owners__c=='Green',GreenCircleUrl,if(Project.Sensitive_Property_Owners__c=='Yellow',YellowCircleUrl,'')))}" width="30" height="30" rendered="{!if(OR(ISNULL(Project.Sensitive_Property_Owners__c),Project.Sensitive_Property_Owners__c=='N/A'),false,true)}"/>              
+                        <apex:outputText rendered="{!IF(Project.Sensitive_Property_Owners__c=='N/A',true,false)}" value="{!Project.Sensitive_Property_Owners__c}" />
+                        </span></p>
+                </td>
+            </tr>
+            <tr style='mso-yfti-irow:3;page-break-inside:avoid;mso-row-margin-right:.5pt'>
+                <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+                    <p class="MsoNormal"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>State Legislature</span></p>
+                </td>
+                <td valign="top" style='padding:0cm 5.4pt 0cm 5.4pt;vertical-align: middle;'>
+                    <p class="MsoNormal"><span style='font-size:11.0pt;font-family:"Calibri","sans-serif";mso-ansi-language:ES-PE;mso-fareast-language:ES-PE;mso-no-proof:yes'>
+                        <apex:image url="{!if(Project.State_Legislature__c=='Red', RedCircleUrl, if(Project.State_Legislature__c=='Green',GreenCircleUrl,if(Project.State_Legislature__c=='Yellow',YellowCircleUrl,'')))}" width="30" height="30" rendered="{!if(OR(ISNULL(Project.State_Legislature__c),Project.State_Legislature__c=='N/A'),false,true)}"/>              
+                        <apex:outputText rendered="{!IF(Project.State_Legislature__c=='N/A',true,false)}" value="{!Project.State_Legislature__c}" />
+                        </span></p>
+                </td>
+                <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+                    <p class="MsoNormal"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>Visual Impact</span></p>
+                </td>
+                <td style='padding:0cm 5.4pt 0cm 5.4pt;vertical-align: middle;'>
+                    <p class="MsoNormal"><span style='font-size:11.0pt;font-family:"Calibri","sans-serif";mso-ansi-language:ES-PE;mso-fareast-language:ES-PE;mso-no-proof:yes'>
+                        <apex:image url="{!if(Project.Visual_Impact__c=='Red', RedCircleUrl, if(Project.Visual_Impact__c=='Green',GreenCircleUrl,if(Project.Visual_Impact__c=='Yellow',YellowCircleUrl,'')))}" width="30" height="30" rendered="{!if(OR(ISNULL(Project.Visual_Impact__c),Project.Visual_Impact__c=='N/A'),false,true)}"/>              
+                        <apex:outputText rendered="{!IF(Project.Visual_Impact__c=='N/A',true,false)}" value="{!Project.Visual_Impact__c}" />
+                        </span></p>
+                </td>
+            </tr>
+            <tr style='mso-yfti-irow:4;page-break-inside:avoid;mso-row-margin-right:.5pt'>
+                <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+                    <p class="MsoNormal"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>State Legislation</span></p>
+                </td>
+                <td valign="top" style='padding:0cm 5.4pt 0cm 5.4pt;vertical-align: middle;'>
+                    <p class="MsoNormal"><span style='font-size:11.0pt;font-family:"Calibri","sans-serif";mso-ansi-language:ES-PE;mso-fareast-language:ES-PE;mso-no-proof:yes'>
+                        <apex:image url="{!if(Project.State_Legislation__c=='Red', RedCircleUrl, if(Project.State_Legislation__c=='Green',GreenCircleUrl,if(Project.State_Legislation__c=='Yellow',YellowCircleUrl,'')))}" width="30" height="30" rendered="{!if(OR(ISNULL(Project.State_Legislation__c),Project.State_Legislation__c=='N/A'),false,true)}"/>              
+                        <apex:outputText rendered="{!IF(Project.State_Legislation__c=='N/A',true,false)}" value="{!Project.State_Legislation__c}" />
+                        </span></p>
+                </td>
+                <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+                    <p class="MsoNormal"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>Special Interest Groups</span></p>
+                </td>
+                <td style='padding:0cm 5.4pt 0cm 5.4pt;vertical-align: middle;'>
+                    <p class="MsoNormal"><span style='font-size:11.0pt;font-family:"Calibri","sans-serif";mso-ansi-language:ES-PE;mso-fareast-language:ES-PE;mso-no-proof:yes'>
+                        <apex:image url="{!if(Project.Special_Interest_Groups__c=='Red', RedCircleUrl, if(Project.Special_Interest_Groups__c=='Green',GreenCircleUrl,if(Project.Special_Interest_Groups__c=='Yellow',YellowCircleUrl,'')))}" width="30" height="30" rendered="{!if(OR(ISNULL(Project.Special_Interest_Groups__c),Project.Special_Interest_Groups__c=='N/A'),false,true)}"/>              
+                        <apex:outputText rendered="{!IF(Project.Special_Interest_Groups__c=='N/A',true,false)}" value="{!Project.Special_Interest_Groups__c}" />
+                        </span></p>
+                </td>
+            </tr>
+            <tr style='mso-yfti-irow:5;page-break-inside:avoid;mso-row-margin-right:.5pt'>
+                <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+                    <p class="MsoNormal"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>Federal Legislature<span style='background:yellow;mso-highlight:yellow'><p></p></span></span></p>
+                </td>
+                <td valign="top" style='padding:0cm 5.4pt 0cm 5.4pt;vertical-align: middle;'>
+                    <p class="MsoNormal"><span style='font-size:11.0pt;font-family:"Calibri","sans-serif";mso-ansi-language:ES-PE;mso-fareast-language:ES-PE;mso-no-proof:yes'>
+                        <apex:image url="{!if(Project.Federal_Legislature__c=='Red', RedCircleUrl, if(Project.Federal_Legislature__c=='Green',GreenCircleUrl,if(Project.Federal_Legislature__c=='Yellow',YellowCircleUrl,'')))}" width="30" height="30" rendered="{!if(OR(ISNULL(Project.Federal_Legislature__c),Project.Federal_Legislature__c=='N/A'),false,true)}"/>
+                        <apex:outputText rendered="{!IF(Project.Federal_Legislature__c=='N/A',true,false)}" value="{!Project.Federal_Legislature__c}" />
+                        </span></p>
+                </td>
+                <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+                    <p class="MsoNormal"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>Community Character</span></p>
+                </td>
+                <td style='padding:0cm 5.4pt 0cm 5.4pt;vertical-align: middle;'>
+                    <p class="MsoNormal"><span style='font-size:11.0pt;font-family:"Calibri","sans-serif";mso-ansi-language:ES-PE;mso-fareast-language:ES-PE;mso-no-proof:yes'>
+                        <apex:image url="{!if(Project.Community_Character__c=='Red', RedCircleUrl, if(Project.Community_Character__c=='Green',GreenCircleUrl,if(Project.Community_Character__c=='Yellow',YellowCircleUrl,'')))}" width="30" height="30" rendered="{!if(OR(ISNULL(Project.Community_Character__c),Project.Community_Character__c=='N/A'),false,true)}"/>
+                        <apex:outputText rendered="{!IF(Project.Community_Character__c=='N/A',true,false)}" value="{!Project.Community_Character__c}" />
+                        </span></p>
+                </td>
+            </tr>
+            <tr style='mso-yfti-irow:6;page-break-inside:avoid;mso-row-margin-right:.5pt'>
+                <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+                    <p class="MsoNormal"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>Federal Legislation<span style='background:yellow;mso-highlight:yellow'><p></p></span></span></p>
+                </td>
+                <td valign="top" style='padding:0cm 5.4pt 0cm 5.4pt;vertical-align: middle;'>
+                    <p class="MsoNormal"><span style='font-size:11.0pt;font-family:"Calibri","sans-serif";mso-ansi-language:ES-PE;mso-fareast-language:ES-PE;mso-no-proof:yes'>
+                        <apex:image url="{!if(Project.Federal_Legislation__c=='Red', RedCircleUrl, if(Project.Federal_Legislation__c=='Green',GreenCircleUrl,if(Project.Federal_Legislation__c=='Yellow',YellowCircleUrl,'')))}" width="30" height="30" rendered="{!if(OR(ISNULL(Project.Federal_Legislation__c),Project.Federal_Legislation__c=='N/A'),false,true)}"/>
+                        <apex:outputText rendered="{!IF(Project.Federal_Legislation__c=='N/A',true,false)}" value="{!Project.Federal_Legislation__c}" />
+                        </span></p>
+                </td>
+                <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+                    <p class="MsoNormal"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>Media</span></p>
+                </td>
+                <td style='padding:0cm 5.4pt 0cm 5.4pt;vertical-align: middle;'>
+                    <p class="MsoNormal"><span style='font-size:11.0pt;font-family:"Calibri","sans-serif";mso-ansi-language:ES-PE;mso-fareast-language:ES-PE;mso-no-proof:yes'>
+                        <apex:image url="{!if(Project.Media__c=='Red', RedCircleUrl, if(Project.Media__c=='Green',GreenCircleUrl,if(Project.Media__c=='Yellow',YellowCircleUrl,'')))}" width="30" height="30" rendered="{!if(OR(ISNULL(Project.Media__c),Project.Media__c=='N/A'),false,true)}"/>
+                        <apex:outputText rendered="{!IF(Project.Media__c=='N/A',true,false)}" value="{!Project.Media__c}" />
+                        </span></p>
+                </td>
+            </tr>
+            <tr style='mso-yfti-irow:7;page-break-inside:avoid'>
+                <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+                    <p class="MsoNormal"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>Legal Proceedings</span></p>
+                </td>
+                <td valign="top" style='padding:0cm 5.4pt 0cm 5.4pt;vertical-align: middle;'>
+                    <p class="MsoNormal"><span style='font-size:11.0pt;font-family:"Calibri","sans-serif";mso-ansi-language:ES-PE;mso-fareast-language:ES-PE;mso-no-proof:yes'>
+                        <apex:image url="{!if(Project.Legal_Proceedings__c=='Red', RedCircleUrl, if(Project.Legal_Proceedings__c=='Green',GreenCircleUrl,if(Project.Legal_Proceedings__c=='Yellow',YellowCircleUrl,'')))}" width="30" height="30" rendered="{!if(OR(ISNULL(Project.Legal_Proceedings__c),Project.Legal_Proceedings__c=='N/A'),false,true)}"/>
+                        <apex:outputText rendered="{!IF(Project.Legal_Proceedings__c=='N/A',true,false)}" value="{!Project.Legal_Proceedings__c}" />
+                        </span></p>
+                </td>
+                <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+                    <p class="MsoNormal"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>Previous Controversy</span></p>
+                </td>
+                <td style='padding:0cm 5.4pt 0cm 5.4pt;vertical-align: middle;'>
+                    <p class="MsoNormal"><span style='font-size:11.0pt;font-family:"Calibri","sans-serif";mso-ansi-language:ES-PE;mso-fareast-language:ES-PE;mso-no-proof:yes'>
+                        <apex:image url="{!if(Project.Previous_Controversy__c=='Red', RedCircleUrl, if(Project.Previous_Controversy__c=='Green',GreenCircleUrl,if(Project.Previous_Controversy__c=='Yellow',YellowCircleUrl,'')))}" width="30" height="30" rendered="{!if(OR(ISNULL(Project.Previous_Controversy__c),Project.Previous_Controversy__c=='N/A'),false,true)}"/>
+                        <apex:outputText rendered="{!IF(Project.Previous_Controversy__c=='N/A',true,false)}" value="{!Project.Previous_Controversy__c}" />
+                        </span></p>
+                </td>
+            </tr>
+            <tr style='mso-yfti-irow:8;page-break-inside:avoid'>
+                <td style='padding:0cm 5.4pt 0cm 5.4pt'></td>
+                <td valign="top" style='width:36.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+                    <p class="MsoNormal"><span lang="EN-US"><p>&nbsp;</p></span></p>
+                </td>
+                <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+                    <p class="MsoNormal"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>Clarity of Project Need to Public</span></p>
+                </td>
+                <td style='padding:0cm 5.4pt 0cm 5.4pt;vertical-align: middle;'>
+                    <p class="MsoNormal"><span style='font-size:11.0pt;font-family:"Calibri","sans-serif";mso-ansi-language:ES-PE;mso-fareast-language:ES-PE;mso-no-proof:yes'>
+                        <apex:image url="{!if(Project.Clarity_of_Project_Need_toPublic__c=='Red', RedCircleUrl, if(Project.Clarity_of_Project_Need_toPublic__c=='Green',GreenCircleUrl,if(Project.Clarity_of_Project_Need_toPublic__c=='Yellow',YellowCircleUrl,'')))}" width="30" height="30" rendered="{!if(OR(ISNULL(Project.Clarity_of_Project_Need_toPublic__c),Project.Clarity_of_Project_Need_toPublic__c='N/A'),false,true)}"/>
+                        <apex:outputText rendered="{!IF(Project.Clarity_of_Project_Need_toPublic__c=='N/A',true,false)}" value="{!Project.Clarity_of_Project_Need_toPublic__c}" />
+                        </span></p>
+                </td>
+            </tr>
+            <tr style='mso-yfti-irow:9;page-break-inside:avoid'>
+                <td style='padding:0cm 5.4pt 0cm 5.4pt'></td>
+                <td valign="top" style='padding:0cm 5.4pt 0cm 5.4pt'>
+                    <p class="MsoNormal"><span lang="EN-US"><p>&nbsp;</p></span></p>
+                </td>
+                <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+                    <p class="MsoNormal"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>Political Issue</span></p>
+                </td>
+                <td style='padding:0cm 5.4pt 0cm 5.4pt;vertical-align: middle;'>
+                    <p class="MsoNormal"><span style='font-size:11.0pt;font-family:"Calibri","sans-serif";mso-ansi-language:ES-PE;mso-fareast-language:ES-PE;mso-no-proof:yes'>
+                        <apex:image url="{!if(Project.Political_Issue__c=='Red', RedCircleUrl, if(Project.Political_Issue__c=='Green',GreenCircleUrl,if(Project.Political_Issue__c=='Yellow',YellowCircleUrl,'')))}" width="30" height="30" rendered="{!if(OR(ISNULL(Project.Political_Issue__c),Project.Political_Issue__c=='N/A'),false,true)}"/>
+                        <apex:outputText rendered="{!IF(Project.Political_Issue__c=='N/A',true,false)}" value="{!Project.Political_Issue__c}" />
+                        </span></p>
+                </td>
+            </tr>
+            <tr style='mso-yfti-irow:10;mso-yfti-lastrow:yes;page-break-inside:avoid'>
+                <td style='padding:0cm 5.4pt 0cm 5.4pt'></td>
+                <td valign="top" style='padding:0cm 5.4pt 0cm 5.4pt'>
+                    <p class="MsoNormal"><span lang="EN-US"><p>&nbsp;</p></span></p>
+                </td>
+                <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+                    <p class="MsoNormal"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>Grassroots Community Opposition</span></p>
+                </td>
+                <td style='padding:0cm 5.4pt 0cm 5.4pt;vertical-align: middle;'>
+                    <p class="MsoNormal"><span style='font-size:11.0pt;font-family:"Calibri","sans-serif";mso-ansi-language:ES-PE;mso-fareast-language:ES-PE;mso-no-proof:yes'>
+                        <apex:image url="{!if(Project.Grassroots_Community_Opposition__c=='Red', RedCircleUrl, if(Project.Grassroots_Community_Opposition__c=='Green',GreenCircleUrl,if(Project.Grassroots_Community_Opposition__c=='Yellow',YellowCircleUrl,'')))}" width="30" height="30" rendered="{!if(OR(ISNULL(Project.Grassroots_Community_Opposition__c),Project.Grassroots_Community_Opposition__c='N/A'),false,true)}"/>
+                        <apex:outputText rendered="{!IF(Project.Grassroots_Community_Opposition__c=='N/A',true,false)}" value="{!Project.Grassroots_Community_Opposition__c}" />
+                        </span></p>
+                </td>
+            </tr>
+        </table>
+    </td></tr></table>          
+    <br/>
+    
+    <table style="width:100%;">
+        <tr style="page-break-before:avoid"><td>
+            
+    <table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0" style='background:white;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+            <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;page-break-inside:avoid;height:18.0pt'>
+                <td width="623" style='width:467.5pt;border:1px solid black;padding:0cm 5.4pt 0cm 5.4pt;height:18.0pt'>
+                    <p class="MsoNormal" style='mso-layout-grid-align:none;text-autospace:none'>
+                        <b style='mso-bidi-font-weight:normal'>
+                            <span lang="EN-US" style='font-family:"Calibri","sans-serif";color:black;font-size:14.0pt;mso-fareast-theme-font:minor-latin;letter-spacing:2.0pt'>
+                                ENGAGEMENT TECHNIQUES<p></p>
+                            </span>
+                        </b>
+                    </p>
+                </td>
+            </tr>
+        </table><br/>
+        
+        <table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0"
+     style='margin-left:5.4pt;width:98.9%;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+     mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+     <thead>
+      <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;page-break-inside:avoid;
+       height:23.0pt'>
+       <td width="33%" style='padding:0cm 5.4pt 0cm 5.4pt;height:23.0pt'>
+       <p class="MsoNormal"><b><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>Technique Name</span></b></p>
+       </td>
+       <td width="33%" style='padding:0cm 5.4pt 0cm 5.4pt;height:23.0pt'>
+       <p class="MsoNormal"><b><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>Use With Stakeholder</span></b></p>
+       </td>
+       <td width="33%" style='padding:0cm 5.4pt 0cm 5.4pt;height:23.0pt'>
+       <p class="MsoNormal"><b><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>Project Phase </span></b></p>
+       </td>
+      </tr>
+     </thead>
+    <apex:repeat value="{!listEngagementTechnique}" var="enga">
+        <tr style='mso-yfti-irow:1;page-break-inside:avoid;height:24.3pt'>
+            <td style='padding:0cm 5.4pt 0cm 5.4pt;height:24.3pt'>
+                <p class="MsoNormal"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>{!enga.Name}</span></p>
+            </td>
+            <td style='padding:0cm 5.4pt 0cm 5.4pt;height:24.3pt'>
+                <p class="MsoNormal"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>{!enga.Use_With_Stakeholders__c}</span></p>
+            </td>
+            <td style='padding:0cm 5.4pt 0cm 5.4pt;height:24.3pt'>
+                <p class="MsoNormal"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>{!enga.Project_Phase__c}</span></p>
+            </td>
+        </tr>
+    </apex:repeat>
+    </table>
+    </td></tr></table>
+    <br/>
+   
+    <table style="width:100%;">
+        <tr style="page-break-before:avoid"><td>
+    <table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0" style='background:white;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+     <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes; page-break-inside:avoid;height:18.0pt'>
+      <td width="638" style='width:478.8pt;border:1px solid black;padding:0cm 5.4pt 0cm 5.4pt;height:18.0pt'>
+      <p class="MsoNormal" style='mso-layout-grid-align:none;text-autospace:none'><b style='mso-bidi-font-weight:normal'>
+          <span lang="EN-US" style='font-family:"Calibri","sans-serif";color:black;font-size:14.0pt;mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;letter-spacing:2.0pt'>
+              RISKS &amp; ISSUES LOG<p></p></span></b></p>
+      </td>
+     </tr>
+    </table><br/>
+    
+    <table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0"
+     style='margin-left:5.4pt;width:98.9%;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+     mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+     <thead>
+      <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;page-break-inside:avoid'>
+        <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+            <p class="MsoNormal"><b><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>Risk and Issue Name<p></p></span></b></p>
+        </td>
+        <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+            <p class="MsoNormal"><b><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>Risk or Issue<p></p></span></b></p>
+        </td>
+        <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+            <p class="MsoNormal"><b><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>Last Name<p></p></span></b></p>
+        </td>
+        <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+            <p class="MsoNormal"><b><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>Description<p></p></span></b></p>
+        </td>
+        <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+            <p class="MsoNormal"><b><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>Status<p></p></span></b></p>
+        </td>
+      </tr>
+     </thead>
+    <apex:repeat value="{!listRisks}" var="risk">
+     <tr style='mso-yfti-irow:1;page-break-inside:avoid'>
+        <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+            <p class="MsoNormal"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>{!risk.Name}</span></p>
+        </td>
+        <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+            <p class="MsoNormal"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>{!risk.Risk_or_Issue__c}</span></p>
+        </td>
+        <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+            <p class="MsoNormal"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>{!risk.Risk_Issue_Assigned_To__r.LastName}</span></p>
+        </td>
+        <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+            <p class="MsoNormal"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>{!risk.Risk_Issue_Description__c}</span></p>
+        </td>
+        <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+            <p class="MsoNormal"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>{!risk.Risk_Issue_Status__c}</span></p>
+        </td>
+     </tr>
+     <tr style='mso-yfti-irow:2;page-break-inside:avoid'>
+        <td colspan="5" style='padding:0cm 5.4pt 0cm 5.4pt'>
+            <p class="MsoNormal"><strong><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>Mitigation Measure(s):</span></strong><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>{!risk.Mitigation_Measure_s__c}</span></p>
+        </td>
+     </tr>
+    </apex:repeat>
+    </table>
+   </td></tr></table>         
+    <br/>
+
+   <table style="width:100%;">
+        <tr style="page-break-before:avoid"><td> 
+    <table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0" style='background:white;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+     <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;page-break-inside:avoid;height:18.0pt'>
+      <td width="638" style='width:478.8pt;border:1px solid black;padding:0cm 5.4pt 0cm 5.4pt;height:18.0pt'>
+      <p class="MsoNormal" style='mso-layout-grid-align:none;text-autospace:none'><b style='mso-bidi-font-weight:normal'>
+          <span lang="EN-US" style='font-family:"Calibri","sans-serif";color:black;font-size:14.0pt;mso-fareast-theme-font:minor-latin;letter-spacing:2.0pt'>LPA PROJECT TEAM MEMBERS<p></p></span></b></p>
+      </td>
+     </tr>
+    </table><br/>
+
+    <table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0"
+     style='margin-left:5.4pt;width:98.9%;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+     mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+     <thead>
+      <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;page-break-inside:avoid'>
+       <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+       <p class="MsoNormal"><b><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";text-align:center;'>Team Member<p></p></span></b></p>
+       </td>
+       <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+       <p class="MsoNormal"><b><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";text-align:center;'>Member Role<p></p></span></b></p>
+       </td>
+       <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+       <p class="MsoNormal"><b><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";text-align:center;'>Project Assignment<p></p></span></b></p>
+       </td>
+       <td valign="top" style='padding:0cm 5.4pt 0cm 5.4pt'>
+       <p class="MsoNormal"><b><span lang="EN-US"><p>&nbsp;</p></span></b></p>
+       <p class="MsoNormal" align="center"><b><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>Yr<p></p></span></b></p>
+       </td>
+       <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+       <p class="MsoNormal" align="center"><b><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>% Time Q1<p></p></span></b></p>
+       </td>
+       <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+       <p class="MsoNormal" align="center"><b><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>% Time Q2<p></p></span></b></p>
+       </td>
+       <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+       <p class="MsoNormal" align="center"><b><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>% Time Q3<p></p></span></b></p>
+       </td>
+       <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+       <p class="MsoNormal" align="center"><b><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>% Time Q4<p></p></span></b></p>
+       </td>
+      </tr>
+     </thead>
+    <apex:repeat value="{!listProjectTeam}" var="prote">
+         <tr style='mso-yfti-irow:1;page-break-inside:avoid'>
+          <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+          <p class="MsoNormal" align="justify"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>
+              <apex:outputText value="{!IF(prote.Contact__r.FirstName==null,prote.Contact__r.LastName,prote.Contact__r.FirstName+' '+prote.Contact__r.LastName)}" />
+              </span></p>
+          </td>
+          <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+          <p class="MsoNormal" align="justify"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>{!prote.Member_Role__c}</span></p>
+          </td>
+          <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+          <p class="MsoNormal" align="justify"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>{!prote.Project_Assignment__c}</span></p>
+          </td>
+          <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+          <p class="MsoNormal" align="center"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>
+              <apex:outputText value="{!IF(prote.Year__c==null,'',RIGHT(prote.Year__c,2))}" />
+              </span></p>
+          </td>
+          <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+          <p class="MsoNormal" align="center"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>{!prote.Time_commitment_to_LPA_team_Q1__c}</span></p>
+          </td>
+          <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+          <p class="MsoNormal" align="center"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>{!prote.Time_commitment_to_LPA_team_Q2__c}</span></p>
+          </td>
+          <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+          <p class="MsoNormal" align="center"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>{!prote.Time_commitment_to_LPA_team_Q3__c}</span></p>
+          </td>
+          <td style='padding:0cm 5.4pt 0cm 5.4pt'>
+          <p class="MsoNormal" align="center"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>{!prote.Time_commitment_to_LPA_team_Q4__c}</span></p>
+          </td>
+         </tr>
+    </apex:repeat>
+    </table>
+    </td></tr></table>  
+    <br/>
+
+    <table style="width:100%;">
+        <tr style="page-break-before:avoid"><td>
+    <table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0" style='background:white;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+     <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;page-break-inside:avoid;height:18.0pt'>
+      <td width="638" style='width:478.8pt;border:1px solid black;padding:0cm 5.4pt 0cm 5.4pt;height:18.0pt'>
+      <p class="MsoNormal" style='mso-layout-grid-align:none;text-autospace:none'><b
+      style='mso-bidi-font-weight:normal'>
+          <span lang="EN-US" style='font-family:"Calibri","sans-serif";color:black;font-size:14.0pt;mso-fareast-theme-font:minor-latin;letter-spacing:2.0pt'>OTHER PARCIPANTS<p></p></span></b></p>
+      </td>
+     </tr>
+    </table><br/>
+
+    <!--<p class="MsoNormal" style='mso-layout-grid-align:none;text-autospace:none'>
+        <b style='mso-bidi-font-weight:normal'>
+        <span lang="EN-US" style='letter-spacing:2.0pt'>PROJECT TEAM MEMBERS<p></p></span>
+        </b>
+    </p>-->
+
+    <table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0"
+     style='margin-left:5.4pt;width:98.9%;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+     mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+     <thead>
+      <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;page-break-inside:avoid;
+       height:23.0pt'>
+       <td width="197" style='width:148.1pt;padding:0cm 5.4pt 0cm 5.4pt;height:23.0pt'>
+       <p class="MsoNormal"><b><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>Participant Name </span></b></p>
+       </td>
+       <td width="132" style='width:99.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:23.0pt'>
+       <p class="MsoNormal"><b><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>Role </span></b></p>
+       </td>
+       <td width="294" style='width:220.5pt;padding:0cm 5.4pt 0cm 5.4pt;height:23.0pt'>
+       <p class="MsoNormal"><b><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>Project Role </span></b></p>
+       </td>
+      </tr>
+     </thead>
+    <apex:repeat value="{!listOtherParticipant}" var="other">
+        <tr style='mso-yfti-irow:1;page-break-inside:avoid;height:24.3pt'>
+            <td width="197" style='width:148.1pt;padding:0cm 5.4pt 0cm 5.4pt;height:24.3pt'>
+                <p class="MsoNormal"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>{!other.Full_Name__c}</span></p>
+            </td>
+            <td width="132" style='width:99.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:24.3pt'>
+                <p class="MsoNormal"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>{!other.Role__c}</span></p>
+            </td>
+            <td width="294" style='width:220.5pt;padding:0cm 5.4pt 0cm 5.4pt;height:24.3pt'>
+                <p class="MsoNormal"><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>{!other.Project_Role__c}</span></p>
+            </td>
+        </tr>
+    </apex:repeat>
+    </table>
+  </td></tr></table>          
+    <br/>
+    <br clear="all" style='mso-special-character:line-break;page-break-before:avoid;' />
+    <!--<table style="width:100%;">
+        <tr style="page-break-before:avoid"><td>-->
+    <table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0" style='background:white;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+        <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;page-break-inside:avoid;height:18.0pt'>
+            <td width="638" style='width:478.8pt;border:1px solid black;padding:0cm 5.4pt 0cm 5.4pt;height:18.0pt'>
+                <p class="MsoNormal" style='mso-layout-grid-align:none;text-autospace:none'><b style='mso-bidi-font-weight:normal'>
+                    <span lang="EN-US" style='font-family:"Calibri","sans-serif";color:black;font-size:14.0pt;mso-fareast-theme-font:minor-latin;letter-spacing:2.0pt'>SWOT ANALYSIS<p></p></span>
+                    </b>
+                </p>
+            </td>
+        </tr>
+    </table><br/>
+
+    <table class="MsoNormalTable" border="1" cellspacing="0" cellpadding="0" style='margin-left:5.4pt;width:98.9%;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+        <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;'>
+            <td width="50%" valign="top" style='width:239.4pt;border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+                <p class="MsoNormal" style='line-height:105%'><b><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>STRENGTHS </span></b><strong><span lang="EN-US" style='font-weight:normal;mso-bidi-font-weight:bold'><p></p></span></strong></p>
+                <span style='font-size:11.0pt;font-family:"Calibri","sans-serif";'><apex:outputText value="{!Project.Internal_Helpful_Strengths__c}" escape="false" /></span>
+            </td>
+            <td width="50%" valign="top" style='width:229.5pt;border:solid windowtext 1.0pt;border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+                <p class="MsoNormal" style='line-height:105%'><b><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>WEAKNESSES </span></b><strong><span lang="EN-US" style='font-weight:normal;mso-bidi-font-weight:bold'><p></p></span></strong></p>
+                <span style='font-size:11.0pt;font-family:"Calibri","sans-serif";'><apex:outputText value="{!Project.Internal_Harmful_Weaknesses__c}" escape="false" /></span>
+            </td>
+        </tr>
+        <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes;'>
+            <td width="50%" valign="top" style='width:239.4pt;border:solid windowtext 1.0pt;border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+                <p class="MsoNormal" style='line-height:105%'><strong><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>OPPORTUNITIES
+                    </span></strong><strong><span lang="EN-US" style='font-weight:normal;mso-bidi-font-weight:bold'><p></p></span></strong></p>
+                <span style='font-size:11.0pt;font-family:"Calibri","sans-serif";'><apex:outputText value="{!Project.External_Helpful_Strengths__c}" escape="false" /></span>
+            </td>
+            <td width="50%" valign="top" style='width:229.5pt;border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+                <p class="MsoNormal" style='line-height:105%'><strong><span lang="EN-US" style='font-size:11.0pt;font-family:"Calibri","sans-serif";'>THREATS </span></strong><strong><span lang="EN-US" style='font-weight:normal;mso-bidi-font-weight:bold'><p></p></span></strong></p>
+                <span style='font-size:11.0pt;font-family:"Calibri","sans-serif";'><apex:outputText value="{!Project.External_Harmful_Weaknesses__c}" escape="false" /></span>
+            </td>
+        </tr>
+    </table><br/>
+    <!--</td></tr></table>  -->
+    
+   <table style="width:100%;">
+        <tr style="page-break-before:avoid"><td>
+
+        <table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0" style='background:white;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+            <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes;page-break-inside:avoid;height:18.0pt'>
+                <td width="638" style='width:478.8pt;border:1px solid black;padding:0cm 5.4pt 0cm 5.4pt;height:18.0pt'>
+                    <p class="MsoNormal" style='mso-layout-grid-align:none;text-autospace:none'>
+                        <b style='mso-bidi-font-weight:normal'>
+                            <span lang="EN-US" style='font-family:"Calibri","sans-serif";color:black;font-size:14.0pt;mso-fareast-theme-font:minor-latin;letter-spacing:2.0pt'>APPENDIX<p></p></span>
+                        </b>
+                    </p>
+                </td>
+            </tr>
+        </table><br/>
+    
+        <p class="MsoNormal" style='mso-layout-grid-align:none;text-autospace:none' width="100%">
+            <span lang="EN-US" style='font-family:"Calibri","sans-serif";font-size:11.0pt;'>
+                <apex:outputText value="{!Project.Plan_Appendix__c}" escape="false" />
+            </span>
+        </p>
+    </td></tr></table>
+</div>
+
+    <div class="WordSection1">
+        <div class="hrdftrt"> 
+                <div style='mso-element:header;margin:0in 0in 0in -18in' id="h1">
+                    <p class="MsoHeader" align="center" style='text-align:center;page-break-after:auto;'>
+                        <span lang="EN-US" style='font-size:12.0pt;font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";color:red'>
+                            INTERNAL CONFIDENTIAL
+                        </span>
+                    </p>
+                </div>
+                <div style='mso-element:footer;position:relative;margin:0in 0in 0in -18in;' id="f1"> 
+                    <table class="MsoFooter" style='tab-stops:right 451.3pt;page-break-after:auto;width:100%;' cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                            <td style="width:70%">
+                                <p style="text-align:left;">
+                                    <span lang="EN-US" style='display:inline-block;float:left;font-size:10.0pt;font-family:"Times New Roman",serif;color:#7F7F7F;mso-themecolor:background1;mso-themeshade:128;mso-style-textfill-fill-color:#7F7F7F;mso-style-textfill-fill-themecolor:background1;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:lumm=50000;'>
+                                        <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                            <apex:param value="{!TODAY()}" />
+                                        </apex:outputText>
+                                        &nbsp;- {!Project.name}
+                                    </span>  
+                                </p>
+                                
+                            </td>
+                            <td style="width:30%">
+                                <p style="text-align:right;">
+                                    <b>
+                                        <span lang="EN-US" style='font-size:10.0pt;mso-field-code: PAGE;mso-fareast-font-family:"Calibri",serif;color:#7F7F7F;mso-themecolor:background1;mso-themeshade:128;mso-style-textfill-fill-color:#7F7F7F;mso-style-textfill-fill-themecolor:background1;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:lumm=50000;'>
+                                        </span>
+                                    </b>
+                                    <span lang="EN-US" style='font-size:10.0pt;mso-fareast-font-family:"Calibri",serif;color:#7F7F7F;mso-themecolor:background1;mso-themeshade:128;mso-style-textfill-fill-color:#7F7F7F;mso-style-textfill-fill-themecolor:background1;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:lumm=50000;'>
+                                        &nbsp;|&nbsp;P a g e 
+                                    </span>
+                                    
+                                    <!--<span lang="EN-US" style='mso-fareast-font-family:"Times New Roman",serif;color:#7F7F7F;mso-themecolor:background1;mso-themeshade:128;mso-style-textfill-fill-color:#7F7F7F;mso-style-textfill-fill-themecolor:background1;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:lumm=50000;'>
+                                      &nbsp;of 
+                                    </span>
+                                    <b>
+                                        <span lang="EN-US" style='mso-field-code: NUMPAGES;font-size:12.0pt;font-family:"Times New Roman",serif;color:#7F7F7F;mso-themecolor:background1;mso-themeshade:128;mso-style-textfill-fill-color:#7F7F7F;mso-style-textfill-fill-themecolor:background1;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:lumm=50000;'>
+                                        </span>
+                                    </b>-->
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+    </div>
+</body>
+
+</html>
+
+</apex:page>

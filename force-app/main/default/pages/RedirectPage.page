@@ -1,0 +1,17 @@
+<!--
+ - Created by AF @CloudCreations on 01/18/2019.
+ -->
+
+<apex:page standardController="Communication_Log__c" extensions="RedirectPageController" id="RedirectPage"
+           action="{!redirect}">
+    <apex:form >
+        <apex:outputLabel value="{!Communication_Log__c.Redirect_on_Save__c}"
+                          rendered="{!IF(Communication_Log__c.Redirect_on_Save__c = false,false,true)}">
+        </apex:outputLabel>
+        <script>
+            if('{!flag}' == '1') {
+                window.top.location.href = '{!redirectUrl}';
+            }
+        </script>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,5 @@
+<apex:page standardController="Activity__c" extensions="CreateEventController" action="{!CreateEvent}" >
+    <apex:form >
+       <apex:inputHidden value="{!Activity__c.Id}"/>
+    </apex:form>
+</apex:page>

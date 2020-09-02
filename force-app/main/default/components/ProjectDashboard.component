@@ -1,0 +1,524 @@
+<apex:component >
+    <apex:attribute name="projectDashboard" description="This is the ProjectDashboard Class." type="ProjectDashboard" required="true"/>
+    <apex:attribute name="Mision" description="This is the the mision of the company." type="String" required="true"/>
+    <apex:attribute name="logoUrl" description="This is the url of the logo." type="String" required="true"/>
+    <apex:attribute name="GreenCircleUrl" description="This is the url of the Green Circle." type="String" required="true"/>
+    <apex:attribute name="RedCircleUrl" description="This is the url of the Red Circle." type="String" required="true"/>
+    <apex:attribute name="YellowCircleUrl" description="This is the url of the Yellow Circle." type="String" required="true"/>
+    <apex:attribute name="NAUrl" description="This is the url of the NA." type="String" required="true"/>
+    <div class="dashboard" style="width: 16.8in;">
+        <div class="header">
+            <div class="logo">
+                <img src="{!logoUrl}" style="width: 110px;margin-top: 6px;margin-left: 20px;"/>
+    			&nbsp;            
+            </div>
+            <div class="name">
+                <apex:outputPanel layout="block" rendered="{!projectDashboard.project.Draft__c}" style="position:absolute;width:87px;height:27.2px;top:15px;left:612px;font-size: 24px;font-weight: 700; text-transform:uppercase;">
+                    <strong style="color: red;">
+                        DRAFT
+                    </strong>
+                </apex:outputPanel>
+                {!projectDashboard.project.Name}
+            </div>
+        </div>
+        <div class="content">
+            <div class="divLeft">
+                <apex:outputPanel layout="block" rendered="{!projectDashboard.project.Project_Summary_Display__c}" styleClass="projectSummary border">
+                    <h2 class="title">
+                        Project Summary as of {!projectDashboard.dashboardDateAs}              
+                    </h2>
+                    <span class="subtitle">
+                        <apex:outputPanel rendered="{!if(projectDashboard.project.Project_Type__c=='Other', true, false)}">
+                            {!projectDashboard.project.Other_Project_Type__c}
+                        </apex:outputPanel>
+                        <apex:outputPanel rendered="{!if(projectDashboard.project.Project_Type__c=='Other', false, true)}">
+                            {!projectDashboard.project.Project_Type__c}
+                        </apex:outputPanel>
+                    </span>
+                    <p style="margin: 8px 0;">
+                        {!projectDashboard.project.Primary_Project_Summary__c}
+                    </p>
+                    <span class="subtitle">LPA Project Summary</span>
+                    <p style="margin: 8px 0;">
+                        {!projectDashboard.project.Project_Summary__c}
+                    </p>
+                    <p style="margin: 4px 0;">
+                        {!projectDashboard.projectSentence}
+                    </p>
+                </apex:outputPanel>
+                <apex:outputPanel layout="block" rendered="{!!projectDashboard.project.Project_Summary_Display__c}" styleClass="projectSummary underConstruction border">
+                </apex:outputPanel>
+                <apex:outputPanel layout="block" rendered="{!projectDashboard.project.LPA_Project_Team_Displayed__c}" styleClass="projectTeam border">
+                    <table class="multiLines" cellspacing="0" style="margin-top: 0.01in;">
+                        <thead>
+                            <tr>
+                                <td style="width:2.75in;height:0.3in;text-align:center;border-right: 1px solid white;">LPA Project Team<sup>(1)</sup></td>
+                                <td style="width:0.6in;height:0.3in;text-align:center;border-left: 1px solid white;border-right: 1px solid white;">% Time<sup>(2)</sup></td>
+                                <td style="width:2.3in;height:0.3in;text-align:center;border-left: 1px solid white;">Others Partners - SMEs</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <apex:repeat value="{!projectDashboard.ProjectTeams}" var="key">
+                                <tr style="height:0.2in;">
+                                    <td style="border-right: 1px solid white;">
+                                        <p style="margin:0;">
+                                            <apex:repeat value="{!projectDashboard.ProjectTeams[key]}" var="ProjectTeam">
+                                                <!--{!ProjectTeam.Contact__r.Name}, {!ProjectTeam.Contact__r.title}<br/>-->
+                                                {!ProjectTeam.Contact__r.Name}{!if(isBlank(ProjectTeam.Contact__r.title),'',', '+ProjectTeam.Contact__r.title)}<br/>
+                                            </apex:repeat>
+                                        </p>
+                                    </td>
+                                    <td style="text-align:center;border-left: 1px solid white;border-right: 1px solid white;">
+                                        <p style="margin:0;">
+                                            <apex:repeat value="{!projectDashboard.ProjectTeams[key]}" var="ProjectTeam">
+                                                <!--{!ProjectTeam.Total_Time__c}<br/>-->
+                                                <apex:outputPanel rendered="{!IF(contains(projectDashboard.dashboardDateAs,'Q1'),true,false)}">{!ProjectTeam.Time_commitment_to_LPA_team_Q1__c}</apex:outputPanel>
+                                                <apex:outputPanel rendered="{!IF(contains(projectDashboard.dashboardDateAs,'Q2'),true,false)}">{!ProjectTeam.Time_commitment_to_LPA_team_Q2__c}</apex:outputPanel>
+                                                <apex:outputPanel rendered="{!IF(contains(projectDashboard.dashboardDateAs,'Q3'),true,false)}">{!ProjectTeam.Time_commitment_to_LPA_team_Q3__c}</apex:outputPanel>
+                                                <apex:outputPanel rendered="{!IF(contains(projectDashboard.dashboardDateAs,'Q4'),true,false)}">{!ProjectTeam.Time_commitment_to_LPA_team_Q4__c}</apex:outputPanel>
+                                                <br/>
+                                            </apex:repeat>
+                                        </p>
+                                    </td>
+                                    <td style="border-left: 1px solid white;">
+                                        <p style="margin:0;">
+                                            <apex:repeat value="{!projectDashboard.otherParticipants[key]}" var="otherParticipant">
+                                                <!--{!otherParticipant.Full_Name__c}{!if(isBlank(otherParticipant.Role__c),'',', '+otherParticipant.Role__c)}<br/>-->
+                                                {!otherParticipant.Full_Name__c}{!if(isBlank(otherParticipant.Role__c),'',if(otherParticipant.Full_Name__c==null,otherParticipant.Role__c,', '+otherParticipant.Role__c))}<br/>
+                                            </apex:repeat>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </apex:repeat>
+                        </tbody>
+                    </table>
+                    <p style="margin: 0;font-size:10px;">
+                        (1) Refer to Project Plan for entire list <br/>
+                        (2) LPA Project Team percentage time based on current calendar year
+                    </p>
+                </apex:outputPanel>
+                <apex:outputPanel layout="block" rendered="{!!projectDashboard.project.LPA_Project_Team_Displayed__c}" styleClass="projectTeam underConstruction border">
+                </apex:outputPanel>
+                <apex:outputPanel layout="block" rendered="{!projectDashboard.project.Goals_Objectives_Displayed__c}" styleClass="projectGoals border">
+                    <table width="100%">
+                        <thead>
+                            <tr>
+                                <td style="width:50%;height:0.3in;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;text-align:center;">Goals</td>
+                                <td style="width:50%;height:0.3in;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;text-align:center;">Objectives</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="2">
+                                    <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                                        <apex:repeat value="{!projectDashboard.goals}" var="key">
+                                            <tr style="height:0.26in;">
+                                                <td style="width:50%;border: 0.5px solid #B3CAE3;">
+                                                    <p style="margin:0;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;overflow-wrap: break-word;word-wrap: break-word;-ms-word-break: break-word;word-break: break-word;-ms-hyphens: auto;-moz-hyphens: auto;-webkit-hyphens: auto;hyphens: auto;">
+                                                        {!key}. {!projectDashboard.goals[key].Name}
+                                                    </p>                                
+                                                </td>
+                                                <td style="border: 0.5px solid #B3CAE3;">
+                                                    <apex:repeat value="{!projectDashboard.objetives[key]}" var="objective">
+                                                        <p style="margin:0;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;overflow-wrap: break-word;word-wrap: break-word;-ms-word-break: break-word;word-break: break-word;-ms-hyphens: auto;-moz-hyphens: auto;-webkit-hyphens: auto;hyphens: auto;">
+                                                            {!objective.Short_Description__c}<br/>
+                                                        </p>                                
+                                                    </apex:repeat>
+                                                </td>
+                                            </tr>
+                                        </apex:repeat>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </apex:outputPanel>
+                <apex:outputPanel layout="block" rendered="{!!projectDashboard.project.Goals_Objectives_Displayed__c}" styleClass="projectGoals underConstruction border">
+                </apex:outputPanel>
+            </div>
+            <div class="divRight">
+                <apex:outputPanel layout="block" rendered="{!projectDashboard.project.Project_Timeline_Displayed__c}" styleClass="projecTimeline border">
+                    <apex:outputPanel layout="block" rendered="{!projectDashboard.project.Draft__c}" style="position:absolute;left:55px;top:5px;">
+                        
+                    </apex:outputPanel>
+                    <div style="float: left;display:inline-block;width: 40px;height: 5.3in;background-color: rgba(179, 197, 227, 0.3);">
+                        <div style="writing-mode: vertical-lr;width: 40px;height: 2.65in;-webkit-transform: rotate(180deg);-moz-transform: rotate(180deg);-o-transform: rotate(180deg);-ms-transform: rotate(180deg);transform: rotate(180deg);line-height: 50px;text-align: center;">
+                            <strong style="font-size:16px; text-transform: capitalize;">
+                                <!--MAJOR PROJECTS ORGANIZATION-->{!if(projectDashboard.project.Project_Type__c=='Other', projectDashboard.project.Other_Project_Type__c, projectDashboard.project.Project_Type__c)}
+                            </strong>
+                        </div>
+                        <div style="writing-mode: vertical-lr;width: 40px;height: 2.65in;-webkit-transform: rotate(180deg);-moz-transform: rotate(180deg);-o-transform: rotate(180deg);-ms-transform: rotate(180deg);transform: rotate(180deg);line-height: 50px;text-align: center;">
+                            <strong style="font-size:16px">
+                                Local Public Affairs
+                            </strong>
+                        </div>
+                    </div>
+                    <div id="{!projectDashboard.project.id}" style="float: left;width: 930px;margin-top: 250px;">
+                        <div class="{!projectDashboard.project.id}-wrap">
+                            <apex:outputPanel layout="block" rendered="{!if(projectDashboard.project.Dashboard_Timeline_Start_Date__c!=null && projectDashboard.project.Dashboard_Timeline_End_Date__c!=null && projectDashboard.project.LPA_Project_Start_Date__c!=null && projectDashboard.project.LPA_Est_Completion_Date__c!=null && projectDashboard.project.Corporate_Project_Start_Date__c!=null && projectDashboard.project.Corporate_Project_Est_Completion_Date__c!=null && projectDashboard.project.Dashboard_Timeline_Start_Date__c<=projectDashboard.project.LPA_Project_Start_Date__c && projectDashboard.project.Dashboard_Timeline_End_Date__c>=projectDashboard.project.LPA_Est_Completion_Date__c && projectDashboard.project.Dashboard_Timeline_Start_Date__c<=projectDashboard.project.Corporate_Project_Start_Date__c && projectDashboard.project.Dashboard_Timeline_End_Date__c>=projectDashboard.project.Corporate_Project_Est_Completion_Date__c, true, false)}">
+                                <div class="{!projectDashboard.project.id}-event" data-milestonetype="note-green1" data-projectid="{!projectDashboard.project.id}" data-startyear="{!projectDashboard.timelineStartYear}" data-endyear="{!projectDashboard.timelineEndYear}">
+                                    <div class="{!projectDashboard.project.id}-date">
+                                        <apex:outputText value="{0,date,yyyy-MM-dd}">
+                                            <apex:param value="{!projectDashboard.project.LPA_Project_Start_Date__c}" />
+                                        </apex:outputText>
+                                    </div>
+                                    <div class="{!projectDashboard.project.id}-title">&nbsp;</div>
+                                    <div class="{!projectDashboard.project.id}-thumb"></div>
+                                    <div class="{!projectDashboard.project.id}-content">
+                                        LPA Start
+                                    </div>
+                                </div>
+                                <div class="{!projectDashboard.project.id}-event" data-milestonetype="note-green2" data-projectid="{!projectDashboard.project.id}" data-startyear="{!projectDashboard.timelineStartYear}" data-endyear="{!projectDashboard.timelineEndYear}">
+                                    <div class="{!projectDashboard.project.id}-date">
+                                        <apex:outputText value="{0,date,yyyy-MM-dd}">
+                                            <apex:param value="{!projectDashboard.project.Corporate_Project_Start_Date__c}" />
+                                        </apex:outputText>
+                                    </div>
+                                    <div class="{!projectDashboard.project.id}-title">&nbsp;</div>
+                                    <div class="{!projectDashboard.project.id}-thumb"></div>
+                                    <div class="{!projectDashboard.project.id}-content">
+                                        Start
+                                    </div>
+                                </div>
+                                <div class="{!projectDashboard.project.id}-event" data-milestonetype="note-red1" data-projectid="{!projectDashboard.project.id}" data-startyear="{!projectDashboard.timelineStartYear}" data-endyear="{!projectDashboard.timelineEndYear}">
+                                    <div class="{!projectDashboard.project.id}-date">
+                                        <apex:outputText value="{0,date,yyyy-MM-dd}">
+                                            <apex:param value="{!projectDashboard.project.LPA_Est_Completion_Date__c}" />
+                                        </apex:outputText>
+                                    </div>
+                                    <div class="{!projectDashboard.project.id}-title">&nbsp;</div>
+                                    <div class="{!projectDashboard.project.id}-thumb"></div>
+                                    <div class="{!projectDashboard.project.id}-content">
+                                        LPA End
+                                    </div>
+                                </div>
+                                <div class="{!projectDashboard.project.id}-event" data-milestonetype="note-red2" data-projectid="{!projectDashboard.project.id}" data-startyear="{!projectDashboard.timelineStartYear}" data-endyear="{!projectDashboard.timelineEndYear}">
+                                    <div class="{!projectDashboard.project.id}-date">
+                                        <apex:outputText value="{0,date,yyyy-MM-dd}">
+                                            <apex:param value="{!projectDashboard.project.Corporate_Project_Est_Completion_Date__c}" />
+                                        </apex:outputText>
+                                    </div>
+                                    <div class="{!projectDashboard.project.id}-title">&nbsp;</div>
+                                    <div class="{!projectDashboard.project.id}-thumb"></div>
+                                    <div class="{!projectDashboard.project.id}-content">
+                                        End
+                                    </div>
+                                </div>
+                            </apex:outputPanel>
+                            <apex:repeat value="{!projectDashboard.milestones}" var="milestone">
+                                <div class="{!projectDashboard.project.id}-event" data-milestonetype="{!milestone.Type_of_Milestone__c}" data-projectid="{!projectDashboard.project.id}" data-startyear="{!projectDashboard.timelineStartYear}" data-endyear="{!projectDashboard.timelineEndYear}">
+                                    <div class="{!projectDashboard.project.id}-date">
+                                        <apex:outputText value="{0,date,yyyy-MM-dd}">
+                                            <apex:param value="{!milestone.Est_Completion_Date__c}" />
+                                        </apex:outputText>
+                                    </div>
+                                    <div class="{!projectDashboard.project.id}-title">&nbsp;</div>
+                                    <div class="{!projectDashboard.project.id}-thumb"></div>
+                                    <div class="{!projectDashboard.project.id}-content">
+                                        {!milestone.Name}
+                                    </div>
+                                </div>
+                                <apex:outputPanel layout="block" styleclass="{!projectDashboard.project.id}-event" html-data-milestonetype="{!milestone.Gate__c}" html-data-projectid="{!projectDashboard.project.id}" rendered="{!if(milestone.Gate__c!=null, true, false)}">
+                                    <div class="{!projectDashboard.project.id}-date">
+                                        <apex:outputText value="{0,date,yyyy-MM-dd}">
+                                            <apex:param value="{!milestone.Est_Completion_Date__c}" />
+                                        </apex:outputText>
+                                    </div>
+                                    <div class="{!projectDashboard.project.id}-title">&nbsp;</div>
+                                    <div class="{!projectDashboard.project.id}-thumb"></div>
+                                    <div class="{!projectDashboard.project.id}-content">
+                                        &nbsp;G{!milestone.Gate__c}
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:repeat>
+                        </div>
+                    </div>
+                    <div class="arrow-right"></div>
+                    <apex:outputPanel layout="block" rendered="{!projectDashboard.HasGate}" styleClass="gates">
+                    </apex:outputPanel>
+                    <div style="position:absolute;right:5px;bottom:0;">Not to Scale</div>
+                </apex:outputPanel>
+                <apex:outputPanel layout="block" rendered="{!!projectDashboard.project.Project_Timeline_Displayed__c}" styleClass="projecTimeline underConstruction border">
+                </apex:outputPanel>
+                <div class="projectUnder">
+                    <apex:outputPanel layout="block" rendered="{!projectDashboard.project.Stakeholder_Environment_Displayed__c}" styleClass="projectStakeholderEnvironment border">
+                        <table width="100%" cellspacing="0" cellpadding="0">
+                            <thead>
+                                <tr>
+                                	<td colspan="2" style="height:0.5in;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;text-align:center;">Stakeholder Environment</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="width: 50%;vertical-align: top;">
+                                        <table width="100%" class="tableIntro w3" cellspacing="0" cellpadding="0">
+                                            <thead>
+                                                <tr>
+                                                    <td colspan="2" style="height:0.3in;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;text-align:center; color: black;border-top: 2px solid white;border-right: 1px solid white;">Political</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody style="font-size:12px;">
+                                                <tr>
+                                                    <td width="80%" style="font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;padding-top:1px;padding-bottom:1px;">City Council(s)</td>
+                                                    <td width="20%" style="text-align:center;padding-top:1px;padding-bottom:1px;">
+                                                        <apex:image url="{!if(projectDashboard.project.City_Council__c=='Red', RedCircleUrl, if(projectDashboard.project.City_Council__c=='Green',GreenCircleUrl,if(projectDashboard.project.City_Council__c=='Yellow',YellowCircleUrl, NAUrl)))}" width="20" height="20" rendered="{!if(ISNULL(projectDashboard.project.City_Council__c),false,true)}"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="80%" style="font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;">County Board of Supervisors</td>
+                                                    <td width="20%" style="text-align:center;">
+                                                        <apex:image url="{!if(projectDashboard.project.County_Board_Of_Supervisors__c=='Red', RedCircleUrl, if(projectDashboard.project.County_Board_Of_Supervisors__c=='Green',GreenCircleUrl,if(projectDashboard.project.County_Board_Of_Supervisors__c=='Yellow',YellowCircleUrl, NAUrl)))}" width="20" height="20" rendered="{!if(ISNULL(projectDashboard.project.County_Board_Of_Supervisors__c),false,true)}"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="80%" style="font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;">State Legislature</td>
+                                                    <td width="20%" style="text-align:center;">
+                                                        <apex:image url="{!if(projectDashboard.project.State_Legislature__c=='Red', RedCircleUrl, if(projectDashboard.project.State_Legislature__c=='Green',GreenCircleUrl,if(projectDashboard.project.State_Legislature__c=='Yellow',YellowCircleUrl, NAUrl)))}" width="20" height="20" rendered="{!if(ISNULL(projectDashboard.project.State_Legislature__c),false,true)}"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="80%" style="font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;">State Legislation</td>
+                                                    <td width="20%" style="text-align:center;">
+                                                        <apex:image url="{!if(projectDashboard.project.State_Legislation__c=='Red', RedCircleUrl, if(projectDashboard.project.State_Legislation__c=='Green',GreenCircleUrl,if(projectDashboard.project.State_Legislation__c=='Yellow',YellowCircleUrl, NAUrl)))}" width="20" height="20" rendered="{!if(ISNULL(projectDashboard.project.State_Legislation__c),false,true)}"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="80%" style="font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;">Federal Legislature</td>
+                                                    <td width="20%" style="text-align:center;">
+                                                        <apex:image url="{!if(projectDashboard.project.Federal_Legislature__c=='Red', RedCircleUrl, if(projectDashboard.project.Federal_Legislature__c=='Green',GreenCircleUrl,if(projectDashboard.project.Federal_Legislature__c=='Yellow',YellowCircleUrl, NAUrl)))}" width="20" height="20" rendered="{!if(ISNULL(projectDashboard.project.Federal_Legislature__c),false,true)}"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="80%" style="font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;">Federal Legislation</td>
+                                                    <td width="20%" style="text-align:center;">
+                                                        <apex:image url="{!if(projectDashboard.project.Federal_Legislation__c=='Red', RedCircleUrl, if(projectDashboard.project.Federal_Legislation__c=='Green',GreenCircleUrl,if(projectDashboard.project.Federal_Legislation__c=='Yellow',YellowCircleUrl, NAUrl)))}" width="20" height="20" rendered="{!if(ISNULL(projectDashboard.project.Federal_Legislation__c),false,true)}"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="80%" style="font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;padding-top:1px;padding-bottom:1px;">Legal Proceedings</td>
+                                                    <td width="20%" style="text-align:center;padding-top:1px;padding-bottom:1px;">
+                                                        <apex:image url="{!if(projectDashboard.project.Legal_Proceedings__c=='Red', RedCircleUrl, if(projectDashboard.project.Legal_Proceedings__c=='Green',GreenCircleUrl,if(projectDashboard.project.Legal_Proceedings__c=='Yellow',YellowCircleUrl, NAUrl)))}" width="20" height="20" rendered="{!if(ISNULL(projectDashboard.project.Legal_Proceedings__c),false,true)}"/>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td style="vertical-align: top;">
+                                        <table width="100%" class="tableIntro w2" cellspacing="0" cellpadding="0">
+                                            <thead>
+                                                <tr>
+                                                    <td colspan="2" style="height:0.3in;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;text-align:center; color: black;border-top: 2px solid white;border-left: 1px solid white;">Community</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody style="font-size:12px;">
+                                                <tr>
+                                                    <td width="80%" style="font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;">Sensitive Land Users</td>
+                                                    <td width="20%" style="text-align:center;">
+                                                        <apex:image url="{!if(projectDashboard.project.Sensitive_Land_Users__c=='Red', RedCircleUrl, if(projectDashboard.project.Sensitive_Land_Users__c=='Green',GreenCircleUrl,if(projectDashboard.project.Sensitive_Land_Users__c=='Yellow',YellowCircleUrl, NAUrl)))}" width="20" height="20" rendered="{!if(ISNULL(projectDashboard.project.Sensitive_Land_Users__c),false,true)}"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="80%" style="font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;">Sensitive Property Owners</td>
+                                                    <td width="20%" style="text-align:center;">
+                                                        <apex:image url="{!if(projectDashboard.project.Sensitive_Property_Owners__c=='Red', RedCircleUrl, if(projectDashboard.project.Sensitive_Property_Owners__c=='Green',GreenCircleUrl,if(projectDashboard.project.Sensitive_Property_Owners__c=='Yellow',YellowCircleUrl, NAUrl)))}" width="20" height="20" rendered="{!if(ISNULL(projectDashboard.project.Sensitive_Property_Owners__c),false,true)}"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="80%" style="font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;">Visual Impact</td>
+                                                    <td width="20%" style="text-align:center;">
+                                                        <apex:image url="{!if(projectDashboard.project.Visual_Impact__c=='Red', RedCircleUrl, if(projectDashboard.project.Visual_Impact__c=='Green',GreenCircleUrl,if(projectDashboard.project.Visual_Impact__c=='Yellow',YellowCircleUrl, NAUrl)))}" width="20" height="20" rendered="{!if(ISNULL(projectDashboard.project.Visual_Impact__c),false,true)}"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="80%" style="font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;">Special Interest Groups</td>
+                                                    <td width="20%" style="text-align:center;">
+                                                        <apex:image url="{!if(projectDashboard.project.Special_Interest_Groups__c=='Red', RedCircleUrl, if(projectDashboard.project.Special_Interest_Groups__c=='Green',GreenCircleUrl,if(projectDashboard.project.Special_Interest_Groups__c=='Yellow',YellowCircleUrl, NAUrl)))}" width="20" height="20" rendered="{!if(ISNULL(projectDashboard.project.Special_Interest_Groups__c),false,true)}"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="80%" style="font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;">Community Character</td>
+                                                    <td width="20%" style="text-align:center;">
+                                                        <apex:image url="{!if(projectDashboard.project.Community_Character__c=='Red', RedCircleUrl, if(projectDashboard.project.Community_Character__c=='Green',GreenCircleUrl,if(projectDashboard.project.Community_Character__c=='Yellow',YellowCircleUrl, NAUrl)))}" width="20" height="20" rendered="{!if(ISNULL(projectDashboard.project.Community_Character__c),false,true)}"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="80%" style="font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;">Media</td>
+                                                    <td width="20%" style="text-align:center;">
+                                                        <apex:image url="{!if(projectDashboard.project.Media__c=='Red', RedCircleUrl, if(projectDashboard.project.Media__c=='Green',GreenCircleUrl,if(projectDashboard.project.Media__c=='Yellow',YellowCircleUrl, NAUrl)))}" width="20" height="20" rendered="{!if(ISNULL(projectDashboard.project.Media__c),false,true)}"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="80%" style="font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;">Previous Controversy</td>
+                                                    <td width="20%" style="text-align:center;">
+                                                        <apex:image url="{!if(projectDashboard.project.Previous_Controversy__c=='Red', RedCircleUrl, if(projectDashboard.project.Previous_Controversy__c=='Green',GreenCircleUrl,if(projectDashboard.project.Previous_Controversy__c=='Yellow',YellowCircleUrl, NAUrl)))}" width="20" height="20" rendered="{!if(ISNULL(projectDashboard.project.Previous_Controversy__c),false,true)}"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="80%" style="font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;">Clarity of Project Need to Public</td>
+                                                    <td width="20%" style="text-align:center;">
+                                                        <apex:image url="{!if(projectDashboard.project.Clarity_of_Project_Need_toPublic__c=='Red', RedCircleUrl, if(projectDashboard.project.Clarity_of_Project_Need_toPublic__c=='Green',GreenCircleUrl,if(projectDashboard.project.Clarity_of_Project_Need_toPublic__c=='Yellow',YellowCircleUrl, NAUrl)))}" width="20" height="20" rendered="{!if(ISNULL(projectDashboard.project.Clarity_of_Project_Need_toPublic__c),false,true)}"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="80%" style="font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;">Political Issue</td>
+                                                    <td width="20%" style="text-align:center;">
+                                                        <apex:image url="{!if(projectDashboard.project.Political_Issue__c=='Red', RedCircleUrl, if(projectDashboard.project.Political_Issue__c=='Green',GreenCircleUrl,if(projectDashboard.project.Political_Issue__c=='Yellow',YellowCircleUrl, NAUrl)))}" width="20" height="20" rendered="{!if(ISNULL(projectDashboard.project.Political_Issue__c),false,true)}"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="80%" style="font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;">Grassroots Community Opposition </td>
+                                                    <td width="20%" style="text-align:center;">
+                                                        <apex:image url="{!if(projectDashboard.project.Grassroots_Community_Opposition__c=='Red', RedCircleUrl, if(projectDashboard.project.Grassroots_Community_Opposition__c=='Green',GreenCircleUrl,if(projectDashboard.project.Grassroots_Community_Opposition__c=='Yellow',YellowCircleUrl, NAUrl)))}" width="20" height="20" rendered="{!if(ISNULL(projectDashboard.project.Grassroots_Community_Opposition__c),false,true)}"/>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <div style="width:3.2in;margin: 0 auto;">
+                                            <table width="100%" class="tableIntro2" cellspacing="0">
+                                                <tbody style="font-size:11px;">
+                                                    <tr style="vertical-align: top;">
+                                                        <td>
+                                                            <strong style="float: left;margin-top:3px;">Key:</strong>
+                                                        </td>
+                                                        <td>
+                                                            <strong style="float: left;margin-top:3px;margin-right:2px;">(3)Low </strong><apex:image url="{!GreenCircleUrl}" width="20" height="20"/>
+                                                        </td>
+                                                        <td>
+                                                            <strong style="float: left;margin-top:3px;margin-right:2px;">(2)Medium </strong><apex:image url="{!YellowCircleUrl}" width="20" height="20"/>
+                                                        </td>
+                                                        <td>
+                                                            <strong style="float: left;margin-top:3px;margin-right:2px;">(1)High </strong><apex:image url="{!RedCircleUrl}" width="20" height="20"/>
+                                                        </td>
+                                                        <td>
+                                                            <apex:image url="{!NAUrl}" width="20" height="20"/>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                             </tbody>
+                        </table>
+                    </apex:outputPanel>
+                    <apex:outputPanel layout="block" rendered="{!!projectDashboard.project.Stakeholder_Environment_Displayed__c}" styleClass="projectStakeholderEnvironment underConstruction border">
+                    </apex:outputPanel>
+                    <apex:outputPanel layout="block" rendered="{!projectDashboard.project.Stakeholder_interest_Matrix_Displayed__c}" styleClass="projectStakeholderInterestMatrix border">
+                        <table width="100%" cellspacing="0" cellpadding="0">
+                            <thead>
+                            <tr>
+                            	<td style="height:0.5in;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;text-align:center;">Stakeholder Interest Matrix</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <table class="tableIntro w2" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <td style="width: 50%;height:0.3in;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;text-align:center; color: black;border-top: 2px solid white;border-right: 1px solid white;">Engage</td>
+                                                    <td style="width: 50%;height:0.3in;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;text-align:center; color: black;border-top: 2px solid white;border-left: 1px solid white;">Partner</td>
+                                                </tr>
+                                            </thead>
+                                            <tr style="height:1.3in;vertical-align: top;">
+                                                <td style="width: 50%;background-color:#F6F2EF;vertical-align: top;">
+                                                    <apex:variable var="cont" value="{!0}"/>
+                                                    <apex:repeat value="{!projectDashboard.engageStakeholders}" var="engageStakeholder">
+                                                        <p style="margin:3px;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;">
+                                                            <!--{!IF(engageStakeholder.Stakeholder_Organization__r.Name!=null && cont<6, engageStakeholder.Stakeholder_Organization__r.Name,'')}{!IF(engageStakeholder.Stakeholder_Organization__r.Name!=null && engageStakeholder.Stakeholder_Contact__r.Name!=null && cont<6, ' - ', '')}{!IF(engageStakeholder.Stakeholder_Contact__r.Name!=null && cont<6, engageStakeholder.Stakeholder_Contact__r.Name,'')}-->
+                                                            {!IF(engageStakeholder.Stakeholder_for_dashboard__c!=null && cont<6, engageStakeholder.Stakeholder_for_dashboard__c,'')}
+                                                        </p>
+                                                        <!--<apex:variable var="cont" value="{!IF(engageStakeholder.Stakeholder_Organization__r.Name!=null || engageStakeholder.Stakeholder_Contact__r.Name!=null, cont+1, cont)}"/>-->
+                                                            <apex:variable var="cont" value="{!IF(engageStakeholder.Stakeholder_for_dashboard__c!=null, cont+1, cont)}"/>
+                                                    </apex:repeat>
+                                                </td>
+                                                <td style="width: 50%;background-color:#F6F2EF;">
+                                                    <apex:variable var="cont" value="{!0}"/>
+                                                    <apex:repeat value="{!projectDashboard.partnerStakeholders}" var="partnerStakeholder">
+                                                        <p style="margin:3px;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;">
+                                                            <!--{!IF(partnerStakeholder.Stakeholder_Organization__r.Name!=null && cont<6, partnerStakeholder.Stakeholder_Organization__r.Name,'')}{!IF(partnerStakeholder.Stakeholder_Organization__r.Name!=null && partnerStakeholder.Stakeholder_Contact__r.Name!=null && cont<6, ' - ', '')}{!IF(partnerStakeholder.Stakeholder_Contact__r.Name!=null && cont<6, partnerStakeholder.Stakeholder_Contact__r.Name,'')}-->
+                                                            {!IF(partnerStakeholder.Stakeholder_for_dashboard__c!=null && cont<6, partnerStakeholder.Stakeholder_for_dashboard__c,'')}
+                                                        </p>
+                                                        <!--<apex:variable var="cont" value="{!IF(partnerStakeholder.Stakeholder_Organization__r.Name!=null || partnerStakeholder.Stakeholder_Contact__r.Name!=null, cont+1, cont)}"/>-->
+                                                            <apex:variable var="cont" value="{!IF(partnerStakeholder.Stakeholder_for_dashboard__c!=null, cont+1, cont)}"/>
+                                                    </apex:repeat>
+                                                </td>
+                                            </tr>
+                                            <thead>
+                                                <tr>
+                                                    <td style="width: 50%;height:0.3in;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;text-align:center; color: black;border-right: 1px solid white;">Monitor</td>
+                                                    <td style="width: 50%;height:0.3in;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;text-align:center; color: black;border-left: 1px solid white;">Empower</td>
+                                                </tr>
+                                            </thead>
+                                            <tr style="height:1.3in;vertical-align: top;">
+                                                <td style="width: 50%;background-color:#F6F2EF;">
+                                                    <apex:variable var="cont" value="{!0}"/>
+                                                    <apex:repeat value="{!projectDashboard.monitorStakeholders}" var="monitorStakeholder">
+                                                        <p style="margin:3px;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;">
+                                                            <!--{!IF(monitorStakeholder.Stakeholder_Organization__r.Name!=null && cont<6, monitorStakeholder.Stakeholder_Organization__r.Name,'')}{!IF(monitorStakeholder.Stakeholder_Organization__r.Name!=null && monitorStakeholder.Stakeholder_Contact__r.Name!=null && cont<6, ' - ', '')}{!IF(monitorStakeholder.Stakeholder_Contact__r.Name!=null && cont<6, monitorStakeholder.Stakeholder_Contact__r.Name,'')}-->
+                                                            {!IF(monitorStakeholder.Stakeholder_for_dashboard__c!=null && cont<6, monitorStakeholder.Stakeholder_for_dashboard__c,'')}
+                                                        </p>
+                                                        <!--<apex:variable var="cont" value="{!IF(monitorStakeholder.Stakeholder_Organization__r.Name!=null || monitorStakeholder.Stakeholder_Contact__r.Name!=null, cont+1, cont)}"/>-->
+                                                        <apex:variable var="cont" value="{!IF(monitorStakeholder.Stakeholder_for_dashboard__c!=null, cont+1, cont)}"/>
+                                                    </apex:repeat>
+                                                </td>
+                                                <td style="width: 50%;background-color:#F6F2EF;">
+                                                    <apex:variable var="cont" value="{!0}"/>
+                                                    <apex:repeat value="{!projectDashboard.empowerStakeholders}" var="empowerStakeholder">
+                                                        <p style="margin:3px;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;">
+                                                            <!--{!IF(empowerStakeholder.Stakeholder_Organization__r.Name!=null && cont<6, empowerStakeholder.Stakeholder_Organization__r.Name,'')}{!IF(empowerStakeholder.Stakeholder_Organization__r.Name!=null && empowerStakeholder.Stakeholder_Contact__r.Name!=null && cont<6, ' - ', '')}{!IF(empowerStakeholder.Stakeholder_Contact__r.Name!=null && cont<6, empowerStakeholder.Stakeholder_Contact__r.Name,'')}-->
+                                                            {!IF(empowerStakeholder.Stakeholder_for_dashboard__c!=null && cont<6, empowerStakeholder.Stakeholder_for_dashboard__c,'')}
+                                                        </p>
+                                                        <!--<apex:variable var="cont" value="{!IF(empowerStakeholder.Stakeholder_Organization__r.Name!=null || empowerStakeholder.Stakeholder_Contact__r.Name!=null, cont+1, cont)}"/>-->
+                                                            <apex:variable var="cont" value="{!IF(empowerStakeholder.Stakeholder_for_dashboard__c!=null, cont+1, cont)}"/>
+                                                    </apex:repeat>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                             </tbody>
+                        </table>
+                    </apex:outputPanel>
+                    <apex:outputPanel layout="block" rendered="{!!projectDashboard.project.Stakeholder_interest_Matrix_Displayed__c}" styleClass="projectStakeholderInterestMatrix underConstruction border">
+                    </apex:outputPanel>
+                </div>
+            </div>
+        </div>
+        <div class="footer" style="margin-bottom: 25px;">
+            <div class="text-left" style="width:31%;float:left;">
+                Local Public Affairs - Issues Management Team <br/>
+                <span class="developedBy">Developed by: {!projectDashboard.project.Owner.Name}, {!projectDashboard.project.Owner.Title}</span>
+            </div>
+            <div class="text-center" style="width:32%;float:left;text-align:right;padding-top: 25px;margin-right: 35px;font-size: 12px;">
+                As of&nbsp;
+                <apex:outputText value="{0,date,MMMM dd, yyyy}">
+                    <apex:param value="{!if(projectDashboard.project.Dashboard_Date_As__c!=null, projectDashboard.project.Dashboard_Date_As__c, TODAY())}" />
+                </apex:outputText>
+            </div>
+            <div class="text-right" style="width:32%;float:left;text-align:right;font-size: 21px;padding-top: 14px;font-weight: 700;">
+                <apex:outputPanel rendered="{!!contains(Mision, '--')}">
+                    {!Mision}
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!contains(Mision, '--')}">
+                    {!left(Mision, find('--', Mision) - 1)}<sup style="top: -.7em;font-size: 12px;">{!MID(Mision, find('--', Mision) + 2, len(Mision) - find('--', Mision) + 1)}</sup>
+                </apex:outputPanel>
+            </div>
+        </div>
+    </div>
+    <script>
+        $('#{!projectDashboard.project.id}').timelinexml({
+            src : $('.{!projectDashboard.project.id}-wrap'),
+            htmlEventClassName : "{!projectDashboard.project.id}-event",
+            htmlDateClassName : "{!projectDashboard.project.id}-date",
+            htmlTitleClassName : "{!projectDashboard.project.id}-title",
+            htmlContentClassName : "{!projectDashboard.project.id}-content",
+            htmlLinkClassName : "{!projectDashboard.project.id}-link",
+            htmlThumbClassName : "{!projectDashboard.project.id}-thumb"
+        });
+    </script>    
+</apex:component>
